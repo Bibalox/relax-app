@@ -29,9 +29,14 @@ export default {
 
 <style lang="scss">
   body {
+    align-items: center;
     background: linear-gradient(180deg, #80C3F4 0%, #70B9EE 100%);
+    display: flex;
+    height: 100vh;
+    justify-content: center;
     margin: 0;
     padding: 0;
+    width: 100vw;
   }
 
   #app {
