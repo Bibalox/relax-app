@@ -18,7 +18,7 @@ jobs:
       env:
         PORT: 22
         METHOD: sftp
-        FTP_SERVER: sftp://home696673610.1and1-data.host
+        FTP_SERVER: home696673610.1and1-data.host
         FTP_USERNAME: ${{ secrets.ftp_username }}
         FTP_PASSWORD: ${{ secrets.ftp_password }}
         REMOTE_DIR: relax-app/
