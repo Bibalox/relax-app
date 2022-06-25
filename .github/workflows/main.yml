@@ -15,7 +15,7 @@ jobs:
     
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@2.0.0
-      with:
+      env:
         PORT: 22
         METHOD: sftp
         FTP_SERVER: sftp://home696673610.1and1-data.host
