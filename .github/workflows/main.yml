@@ -16,9 +16,10 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@2.0.0
       with:
-        ftp-server: home696673610.1and1-data.host
-        ftp-username: ${{ secrets.ftp_username }}
-        ftp-password: ${{ secrets.ftp_password }}
-        port: 22 
+        port: 22
         method: sftp
-        remote-dir: relax-app/
+        ftp_server: sftp://home696673610.1and1-data.host
+        ftp_username: ${{ secrets.ftp_username }}
+        ftp_password: ${{ secrets.ftp_password }}
+
+        remote_dir: relax-app/
