@@ -21,4 +21,5 @@ jobs:
         FTP_SERVER: home696673610.1and1-data.host
         FTP_USERNAME: ${{ secrets.ftp_username }}
         FTP_PASSWORD: ${{ secrets.ftp_password }}
+        LOCAL_DIR: dist/
         REMOTE_DIR: relax-app/
