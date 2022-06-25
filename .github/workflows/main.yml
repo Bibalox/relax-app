@@ -20,4 +20,4 @@ jobs:
         username: ${{ secrets.ftp_username }}
         password: ${{ secrets.ftp_password }}
         port: ${{ secrets.ftp_port }}
-        server-dir: relax-app
+        server-dir: relax-app/
