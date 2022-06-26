@@ -51,8 +51,4 @@ export default {
     height: 100%;
     justify-content: center;
   }
-
-  // .no-zoom {
-  //   touch-action: none;
-  // }
 </style>
