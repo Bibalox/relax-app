@@ -1,7 +1,12 @@
 module.exports = {
   pwa: {
-    name: "Relax",
-    appleMobileWebAppStatusBarStyle: "black-translucent",
-    color: "#80C3F4"
+    manifestOptions: {
+      name: "Relax",
+      display: "fullscreen",
+      theme_color: "#80C3F4"
+    },
+    appleMobileWebAppStatusBarStyle: "black",
+    appleMobileWebAppCapable: "yes",
+    themeColor: "#80C3F4"
   }
 }

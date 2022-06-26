@@ -33,6 +33,12 @@ export default {
       audio.play()
       console.log('Audio played')
     }
+  },
+  mounted () {
+    window.addEventListener("scroll", (e) => {
+      e.preventDefault()
+      window.scrollTo(0, 0)
+    })
   }
 }
 </script>
@@ -41,20 +47,23 @@ export default {
   body {
     align-items: center;
     background: linear-gradient(180deg, #80C3F4 0%, #70B9EE 100%);
-    background-color: transparent;
+    background-color: #80C3F4;
     display: flex;
     height: 100dvh;
     justify-content: center;
     margin: 0;
     overflow: hidden;
     padding: 0;
+   position: fixed;
     width: 100vw;
   }
 
   #app {
+    background: linear-gradient(180deg, #80C3F4 0%, #70B9EE 100%);
+    color: white;
     font-family: Avenir, Helvetica, Arial, sans-serif;
     text-align: center;
-    color: white;
+    // height: 100%;
   }
 
   .no-zoom {
