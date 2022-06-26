@@ -31,9 +31,9 @@ export default {
       }
 
       &--small {
-        animation: breatho 5s .5s alternate infinite ease-in-out;
-        height: 210px;
-        width: 210px;
+        animation: breatho 5s .2s alternate infinite ease-in-out;
+        height: 200px;
+        width: 200px;
 
         @keyframes breatho {
           from {
