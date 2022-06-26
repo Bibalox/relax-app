@@ -1,14 +1,22 @@
 <template>
-  <div class="breathing-ring">
-    <div class="breathing-ring__outer-ring breathing-ring__outer-ring--large"/>
-    <div class="breathing-ring__outer-ring breathing-ring__outer-ring--small"/>
-    <div class="breathing-ring__inner-ring"/>
+  <div
+    :class="[
+      'breathing-ring',
+      { 'breathing-ring--breathing' : breathing }
+    ]">
+    <div class="breathing-ring__ring breathing-ring__ring--inner"/>
+    <div class="breathing-ring__ring breathing-ring__ring--center"/>
+    <div class="breathing-ring__ring breathing-ring__ring--outer"/>
   </div>
 </template>
 
 <script>
 export default {
   props: {
+    breathing: {
+      type: Boolean,
+      default: false
+    }
   }
 }
 </script>
@@ -20,22 +28,25 @@ export default {
     justify-content: center;
     position: relative;
 
-    &__outer-ring {
-      background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0) 72.4%, rgba(255, 255, 255, 0.19) 100%);
-      border-radius: 50%;
-      position: absolute;
+    &--breathing {
+      .breathing-ring__ring--inner {
+        animation: innerRingBreathing 5s .2s alternate infinite ease-in-out;
+        
+        @keyframes innerRingBreathing {
+          from {
+            transform: scale(1);
+          }
 
-      &--large {
-        height: 320px;
-        width: 320px;
+          to {
+            transform: scale(3);
+          }
+        }
       }
+      
+      .breathing-ring__ring--center {
+        animation: centerRingBreathing 5s alternate infinite ease-in-out;
 
-      &--small {
-        animation: breatho 5s .2s alternate infinite ease-in-out;
-        height: 200px;
-        width: 200px;
-
-        @keyframes breatho {
+        @keyframes centerRingBreathing {
           from {
             transform: scale(1);
           }
@@ -47,22 +58,26 @@ export default {
       }
     }
 
-    &__inner-ring {
-      animation: breathe 5s alternate infinite ease-in-out;
-      background: radial-gradient(50% 50% at 50% 50%, #FFFFFF 46.87%, #F9F9F9 100%);
+    &__ring {
       border-radius: 50%;
-      height: 100px;
       position: absolute;
-      width: 100px;
-    }
 
-    @keyframes breathe {
-      from {
-        transform: scale(1);
+      &--inner {
+        background: radial-gradient(50% 50% at 50% 50%, #FFFFFF 46.87%, #F9F9F9 100%);
+        height: 100px;
+        width: 100px;
       }
 
-      to {
-        transform: scale(3);
+      &--center {
+        background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0) 72.4%, rgba(255, 255, 255, 0.19) 100%);
+        height: 200px;
+        width: 200px;
+      }
+
+      &--outer {
+        background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0) 72.4%, rgba(255, 255, 255, 0.19) 100%);
+        height: 320px;
+        width: 320px;
       }
     }
   }

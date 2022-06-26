@@ -1,5 +1,13 @@
 <template>
-  <BreathingRing />
+  <div class="centered-wrapper">
+    <BreathingRing :breathing="true" />
+    <span class="exercise-helper">
+      Breathe in
+    </span>
+    <span class="exercise-helper exercise-helper--animation-delayed">
+      Breathe out
+    </span>
+  </div>
 </template>
 
 <script>
@@ -27,9 +35,12 @@ export default {
 </script>
 
 <style lang="scss">
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
+
   body {
     background-color: #5DADE8;
-    height: 100dvh;
+    height: 100vh;
+    height: 100dvh; // Fix for Safari iOS
     margin: 0;
     overflow: hidden;
     padding: 0;
@@ -39,14 +50,52 @@ export default {
 
   #app {
     align-items: center;
-    background: linear-gradient(180deg, #5DADE8 0%, #2E81BD 99.99%);
-    color: white;
+    background: linear-gradient(180deg, #5DADE8 0%, #2E81BD 100%);
     display: flex;
     flex-direction: column;
-    font-family: Avenir, Helvetica, Arial, sans-serif;
     text-align: center;
     height: 100%;
     justify-content: center;
+  }
+
+  .centered-wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 636px;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+  }
+
+  .exercise-helper {
+    align-items: center;
+    animation: fadeInOut 10s ease-in-out infinite both;
+    bottom: 0;
+    color: white;
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    opacity: 0;
+    position: absolute;
+    height: 40px;
+    justify-content: center;
+    width: 100%;
+
+    &--animation-delayed {
+      animation-delay: 5s;
+    }
+
+    @keyframes fadeInOut {
+      0%, 50% {
+        opacity: 0;
+      }
+
+      20%, 40% {
+        opacity: 1;
+      }
+    }
   }
 
   .no-zoom {
