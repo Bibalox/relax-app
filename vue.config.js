@@ -3,6 +3,6 @@ module.exports = {
     name: "Relax",
     appleMobileWebAppStatusBarStyle: "black-translucent",
     display: "fullscreen",
-    themeColor: "#80C3F4"
+    themeColor: "#5DADE8"
   }
 }
