@@ -58,7 +58,7 @@ export default {
       font-weight: 500;
       gap: 8px;
       height: 32px;
-      // outline: none;
+      outline: none;
       padding: 0 16px 0 12px;
       position: absolute;
       text-decoration: none;

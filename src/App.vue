@@ -28,6 +28,7 @@ export default {
 
   button, a {
     touch-action: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
   body {
