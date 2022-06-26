@@ -56,9 +56,9 @@ export default {
       font-family: 'Poppins', sans-serif;
       font-size: 16px;
       font-weight: 500;
-      flex-direction: center;
       gap: 8px;
       height: 32px;
+      // outline: none;
       padding: 0 16px 0 12px;
       position: absolute;
       text-decoration: none;
