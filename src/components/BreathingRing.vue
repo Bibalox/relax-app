@@ -70,8 +70,8 @@ export default {
 
       &--center {
         background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0) 58.85%, rgba(255, 255, 255, 0.19) 100%);;
-        height: 200px;
-        width: 200px;
+        height: 214px;
+        width: 214px;
       }
 
       &--outer {
