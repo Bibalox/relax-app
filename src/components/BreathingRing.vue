@@ -21,7 +21,7 @@ export default {
     position: relative;
 
     &__outer-ring {
-      background: radial-gradient(50% 50% at 50% 50%, #80C3F4 74.48%, #96CDF6 100%);
+      background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0) 72.4%, rgba(255, 255, 255, 0.19) 100%);
       border-radius: 50%;
       position: absolute;
 
@@ -49,7 +49,7 @@ export default {
 
     &__inner-ring {
       animation: breathe 5s alternate infinite ease-in-out;
-      background: radial-gradient(50% 50% at 50% 50%, #FFFFFF 46.87%, #ECEDFA 100%);
+      background: radial-gradient(50% 50% at 50% 50%, #FFFFFF 46.87%, #F9F9F9 100%);
       border-radius: 50%;
       height: 100px;
       position: absolute;

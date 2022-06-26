@@ -28,7 +28,7 @@ export default {
 
 <style lang="scss">
   body {
-    background-color: #80C3F4;
+    background-color: #5DADE8;
     height: 100dvh;
     margin: 0;
     overflow: hidden;
@@ -39,7 +39,7 @@ export default {
 
   #app {
     align-items: center;
-    background: linear-gradient(180deg, #80C3F4 0%, #70B9EE 100%);
+    background: linear-gradient(180deg, #5DADE8 0%, #2E81BD 99.99%);
     color: white;
     display: flex;
     flex-direction: column;
