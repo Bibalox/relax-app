@@ -5,12 +5,6 @@
     src="./assets/logo.png"
   >
   <HelloWorld msg="Welcome to Your Vue.js App"/>
-  <audio
-    controls
-    class="no-zoom"
-    src="./assets/goutte.mp3"
-    type="audio/mpeg"
-  />
   <button
     class="no-zoom"
     @click="playAudio()"
@@ -29,9 +23,9 @@ export default {
   },
   methods: {
     playAudio () {
-      const audio = new Audio('./assets/goutte.mp3')
+      const audio = new Audio(require('./assets/goutte.mp3'))
       audio.play()
-      console.log('Audio played')
+      console.log('Button pressed')
     }
   },
   mounted () {
