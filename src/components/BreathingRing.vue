@@ -26,7 +26,6 @@ export default {
       position: absolute;
 
       &--large {
-        // animation: breathe 10s 2s alternate infinite ease-in-out;
         height: 320px;
         width: 320px;
       }
