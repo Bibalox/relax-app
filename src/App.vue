@@ -1,12 +1,22 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
+  <img 
+    class="no-zoom"
+    alt="Vue logo"
+    src="./assets/logo.png"
+  >
   <HelloWorld msg="Welcome to Your Vue.js App"/>
   <audio
     controls
+    class="no-zoom"
     src="./assets/goutte.mp3"
     type="audio/mpeg"
   />
-  <button @click="playAudio">Test</button>
+  <button
+    class="no-zoom"
+    @click="playAudio()"
+  >
+    Test
+  </button>
 </template>
 
 <script>
@@ -31,10 +41,12 @@ export default {
   body {
     align-items: center;
     background: linear-gradient(180deg, #80C3F4 0%, #70B9EE 100%);
+    background-color: transparent;
     display: flex;
-    height: 100vh;
+    height: 100dvh;
     justify-content: center;
     margin: 0;
+    overflow: hidden;
     padding: 0;
     width: 100vw;
   }
@@ -43,8 +55,10 @@ export default {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     text-align: center;
     color: white;
-    height: 100vh;
-    overflow: hidden;
-    position: fixed;
+  }
+
+  .no-zoom {
+    touch-action: none;
+    background-color: rgba(255,0,0,.3);
   }
 </style>
