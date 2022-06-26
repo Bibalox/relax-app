@@ -1,32 +1,21 @@
 <template>
-  <img 
-    class="no-zoom"
-    alt="Vue logo"
-    src="./assets/logo.png"
-  >
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-  <button
-    class="no-zoom"
-    @click="playAudio()"
-  >
-    Test
-  </button>
+  <BreathingRing />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BreathingRing from './components/BreathingRing.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    BreathingRing
   },
   methods: {
-    playAudio () {
-      const audio = new Audio(require('./assets/goutte.mp3'))
-      audio.play()
-      console.log('Button pressed')
-    }
+    // playAudio () {
+    //   const audio = new Audio(require('./assets/goutte.mp3'))
+    //   audio.play()
+    //   console.log('Button pressed')
+    // }
   },
   mounted () {
     window.addEventListener("scroll", (e) => {
