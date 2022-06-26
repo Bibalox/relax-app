@@ -39,7 +39,6 @@ export default {
 
 <style lang="scss">
   body {
-    background: linear-gradient(180deg, #80C3F4 0%, #70B9EE 100%);
     background-color: #80C3F4;
     height: 100dvh;
     margin: 0;
