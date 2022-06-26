@@ -62,7 +62,7 @@ export default {
     align-items: center;
     display: flex;
     flex-direction: column;
-    height: 636px;
+    height: 624px;
     justify-content: center;
     position: relative;
     width: 100%;

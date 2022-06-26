@@ -69,7 +69,7 @@ export default {
       }
 
       &--center {
-        background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0) 72.4%, rgba(255, 255, 255, 0.19) 100%);
+        background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0) 48.44%, rgba(255, 255, 255, 0.19) 100%);
         height: 200px;
         width: 200px;
       }
