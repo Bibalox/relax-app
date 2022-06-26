@@ -45,25 +45,26 @@ export default {
 
 <style lang="scss">
   body {
-    align-items: center;
     background: linear-gradient(180deg, #80C3F4 0%, #70B9EE 100%);
     background-color: #80C3F4;
-    display: flex;
     height: 100dvh;
-    justify-content: center;
     margin: 0;
     overflow: hidden;
     padding: 0;
-   position: fixed;
+    position: fixed;
     width: 100vw;
   }
 
   #app {
+    align-items: center;
     background: linear-gradient(180deg, #80C3F4 0%, #70B9EE 100%);
     color: white;
+    display: flex;
+    flex-direction: column;
     font-family: Avenir, Helvetica, Arial, sans-serif;
     text-align: center;
-    // height: 100%;
+    height: 100%;
+    justify-content: center;
   }
 
   .no-zoom {
