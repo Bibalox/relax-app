@@ -88,11 +88,11 @@ export default {
     }
 
     @keyframes fadeInOut {
-      0%, 50% {
+      5%, 55% {
         opacity: 0;
       }
 
-      20%, 40% {
+      25%, 35% {
         opacity: 1;
       }
     }
