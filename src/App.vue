@@ -65,14 +65,14 @@ export default {
   }
 
   .slide-fade-enter-active {
-    animation: slide-fade 1s;
+    animation: slide-fade .5s ease-out;
   }
   .slide-fade-leave-active {
-    animation: slide-fade .5s reverse;
+    animation: slide-fade .5s ease-out reverse;
   }
   @keyframes slide-fade {
     0% {
-      transform: translateY(-3px);
+      transform: translateY(-5px);
       opacity: .1;
     }
     80% {
