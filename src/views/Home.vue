@@ -1,25 +1,29 @@
 <template>
   <div class="home-page">
     <header class="home-page__header">
-      <h1 class="home-page__title">
-        It's time<br/>
-        to relax
-      </h1>
+      <h1 class="home-page__title">It's time<br/>to relax</h1>
     </header>
-    <PrimaryButton
-      label="Continue"
-      route="/breathe"
-    />
+    <main class="home-page__main">
+      <DurationSwitch />
+      <PrimaryButton
+        label="Continue"
+        route="/breathe"
+      />
+    </main>
   </div>
 </template>
 
 <script>
+// import { mapState } from 'vuex'
+
+import DurationSwitch from '@/components/DurationSwitch'
 import PrimaryButton from '@/components/PrimaryButton'
 
 export default {
-  components: {
-    PrimaryButton
-  }
+  components: { DurationSwitch, PrimaryButton },
+  // computed: {
+  //   ...mapState({ soundEnabled })
+  // }
 }
 </script>
 
@@ -47,5 +51,13 @@ export default {
       padding: 0;
       text-align: center;
     }
+
+    &__main {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+      width: 300px;
+    } 
   }
 </style>

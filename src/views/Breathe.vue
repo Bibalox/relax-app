@@ -34,6 +34,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 import BreathingRing from '@/components/BreathingRing'
 import PrimaryButton from '@/components/PrimaryButton'
 
@@ -54,9 +56,7 @@ export default {
     // }
   },
   computed: {
-    duration () {
-      return this.$store.state.breathingCycles * 10000
-    }
+    ...mapGetters(['duration'])
   }
 }
 </script>
