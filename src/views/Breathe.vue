@@ -16,22 +16,19 @@
     <BreathingRing :breathing="breathing" />
 
     <footer class="breathe-page__footer">
-
-      <transition>
-        <div v-if="breathing" class="breathe-page__instructions">
-          <span class="breathe-page__label">
-            Breathe in
-          </span>
-          <span class="breathe-page__label breathe-page__label--animation-delayed">
-            Breathe out
-          </span>
-        </div>
-          <PrimaryButton
-            v-else
-            label="Start"
-            @clickButton="startBreathing"
-          />
-      </transition>
+      <div v-if="breathing" class="breathe-page__instructions">
+        <span class="breathe-page__label">
+          Breathe in
+        </span>
+        <span class="breathe-page__label breathe-page__label--animation-delayed">
+          Breathe out
+        </span>
+      </div>
+      <PrimaryButton
+        v-else
+        label="Start"
+        @clickButton="startBreathing"
+      />
     </footer>
   </div>
 </template>
@@ -105,7 +102,7 @@ export default {
     &__instructions {
       align-items: center;
       display: flex;
-      height: 40px;
+      height: 100%;
       justify-content: center;
       width: 100%;
     }
