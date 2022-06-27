@@ -5,12 +5,13 @@ export default createStore({
     durationType: 'short',
     soundEnabled: true,
     musicEnabled: false,
-    vibrationEnabled: false
+    vibrationEnabled: false,
+    interfaceSound: new Audio(require('@/assets/interface-sound.mp3'))
   },
   getters: {
     duration (state) {
-      const shortDuration = 1 * 10000
-      const longDuration = 3 * 10000
+      const shortDuration = 18 * 10000
+      const longDuration = 30 * 10000
 
       switch (state.durationType) {
         case 'short':

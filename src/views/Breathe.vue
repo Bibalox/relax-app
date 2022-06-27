@@ -45,32 +45,33 @@ export default {
   components: { BreathingRing, PrimaryButton },
   data: () => ({
     breathing: false,
-    interfaceSound: new Audio(require('@/assets/interface-sound.mp3'))
+    interval: null
   }),
   methods: {
     startBreathing () {
       this.breathing = true
 
       setTimeout(() => {
+        clearInterval(this.interval)
         this.breathing = false
       }, this.duration)
 
       if (this.soundEnabled) {
-        setTimeout(() => {
-          clearInterval(interval)
-        }, this.duration)
-
+        this.interfaceSound.load()
         this.interfaceSound.play()
-
-        const interval = setInterval(() => {
+        this.interval = setInterval(() => {
           this.interfaceSound.play()
         }, 10000)
-      } 
+      }
     }
   },
   computed: {
-    ...mapState(['soundEnabled']),
+    ...mapState(['soundEnabled', 'interfaceSound']),
     ...mapGetters(['duration'])
+  },
+  beforeUnmount () {
+    this.interfaceSound.pause()
+    clearInterval(this.interval)
   }
 }
 </script>
