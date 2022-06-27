@@ -45,7 +45,7 @@ export default {
     color: var(--primary--darker);
     display: flex;
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 500;
     height: 40px;
     justify-content: center;

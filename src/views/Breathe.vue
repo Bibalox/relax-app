@@ -110,7 +110,7 @@ export default {
       animation: fadeInOut 10s ease-in-out infinite both;
       color: var(--secondary--default);
       font-family: 'Poppins', sans-serif;
-      font-size: 16px;
+      font-size: 1.6rem;
       font-weight: 500;
       opacity: 0;
       position: absolute;

@@ -17,6 +17,8 @@ export default {
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
   
   :root {
+    font-size: 10px;
+
     --primary--default: #5DADE8;
     --primary--darker: #4899D4;
     --primary--gradient: linear-gradient(180deg, #5DADE8 0%, #2E81BD 100%);
@@ -47,7 +49,6 @@ export default {
     background: var(--primary--gradient);
     display: flex;
     flex-direction: column;
-    text-align: center;
     height: 100%;
     justify-content: center;
   }
