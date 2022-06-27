@@ -1,5 +1,9 @@
 <template>
-  <router-view />
+  <router-view v-slot="{ Component }">
+    <transition name="slide-fade" mode="out-in">
+      <component :is="Component" />
+    </transition>
+  </router-view>
 </template>
 
 <script>
@@ -53,5 +57,22 @@ export default {
     flex-direction: column;
     height: 100%;
     justify-content: center;
+  }
+
+  .slide-fade-enter-active {
+    animation: slide-fade 1s;
+  }
+  .slide-fade-leave-active {
+    animation: slide-fade .5s reverse;
+  }
+  @keyframes slide-fade {
+    0% {
+      transform: translateY(-3px);
+      opacity: .1;
+    }
+    80% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
   }
 </style>

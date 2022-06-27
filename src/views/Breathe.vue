@@ -17,19 +17,24 @@
       <BreathingRing :breathing="breathing" />
 
       <footer class="breathe-page__footer">
-        <div v-if="breathing" class="breathe-page__instructions">
-          <span class="breathe-page__label">
-            Breathe in
-          </span>
-          <span class="breathe-page__label breathe-page__label--animation-delayed">
-            Breathe out
-          </span>
-        </div>
-        <PrimaryButton
-          v-else
-          label="Start"
-          @clickButton="startBreathing"
-        />
+        <transition name="fade" mode="out-in">
+          <div
+            v-if="breathing"
+            class="breathe-page__instructions"
+          >
+            <span class="breathe-page__label">
+              Breathe in
+            </span>
+            <span class="breathe-page__label breathe-page__label--animation-delayed">
+              Breathe out
+            </span>
+          </div>
+          <PrimaryButton
+            v-else
+            label="Start"
+            @clickButton="startBreathing"
+          />
+        </transition>
       </footer>
     </main>
   </div>
@@ -156,6 +161,21 @@ export default {
           opacity: 1;
         }
       }
+    }
+  }
+
+  .fade-enter-active {
+    animation: fade .5s;
+  }
+  .fade-leave-active {
+    animation: fade .5s reverse;
+  }
+  @keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
     }
   }
 </style>
