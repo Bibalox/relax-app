@@ -55,8 +55,9 @@ export default {
   .home-page {
     display: flex;
     flex-direction: column;
-    height: 624px;
     gap: 64px;
+    height: 80vh;
+    max-height: 624px;
   
     &__header {
       align-items: center;

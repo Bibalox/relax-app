@@ -118,10 +118,11 @@ export default {
     &__main {
       align-items: center;
       display: flex;
-      height: 624px;
       justify-content: center;
       position: relative;
       width: 300px;
+      height: 80vh;
+      max-height: 624px;
     }
 
     &__footer {
