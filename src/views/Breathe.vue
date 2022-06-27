@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 import BreathingRing from '@/components/BreathingRing'
 import PrimaryButton from '@/components/PrimaryButton'
@@ -44,20 +44,32 @@ import PrimaryButton from '@/components/PrimaryButton'
 export default {
   components: { BreathingRing, PrimaryButton },
   data: () => ({
-    breathing: false
+    breathing: false,
+    interfaceSound: new Audio(require('@/assets/interface-sound.mp3'))
   }),
   methods: {
     startBreathing () {
       this.breathing = true
-      setTimeout(() => this.breathing = false, this.duration)
+
+      setTimeout(() => {
+        this.breathing = false
+      }, this.duration)
+
+      if (this.soundEnabled) {
+        setTimeout(() => {
+          clearInterval(interval)
+        }, this.duration)
+
+        this.interfaceSound.play()
+
+        const interval = setInterval(() => {
+          this.interfaceSound.play()
+        }, 10000)
+      } 
     }
-    // playAudio () {
-    //   const audio = new Audio(require('./assets/goutte.mp3'))
-    //   audio.play()
-    //   console.log('Button pressed')
-    // }
   },
   computed: {
+    ...mapState(['soundEnabled']),
     ...mapGetters(['duration'])
   }
 }

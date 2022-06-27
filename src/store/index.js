@@ -9,8 +9,8 @@ export default createStore({
   },
   getters: {
     duration (state) {
-      const shortDuration = .5 * 10000
-      const longDuration = 1 * 10000
+      const shortDuration = 1 * 10000
+      const longDuration = 3 * 10000
 
       switch (state.durationType) {
         case 'short':
