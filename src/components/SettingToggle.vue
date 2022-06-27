@@ -94,7 +94,7 @@ export default {
       border-radius: 50%;
       box-shadow: var(--shadow);
       height: 22px;
-      transition: transform .1s ease-in-out;
+      transition: transform .25s ease-in-out;
       width: 22px;
 
       &--left {

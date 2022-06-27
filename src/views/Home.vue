@@ -62,7 +62,7 @@ export default {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      height: 240px;
+      height: 196px;
     }
 
     &__title {

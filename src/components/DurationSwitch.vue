@@ -12,7 +12,7 @@
           'duration-switch__button',
           { 'duration-switch__button--active' : durationType === 'short' }
         ]"
-        @click="selectShortDuration"
+        @click="switchDuration"
       >
         3 minutes
       </button>
@@ -21,7 +21,7 @@
           'duration-switch__button',
           { 'duration-switch__button--active' : durationType === 'long' }
         ]"
-        @click="selectLongDuration"
+        @click="switchDuration"
       >
         5 minutes
       </button>
@@ -40,11 +40,12 @@ export default {
     }
   },
   methods: {
-    selectShortDuration () {
-      this.$store.commit('UPDATE_DURATION_TYPE', 'short')
-    },
-    selectLongDuration () {
-      this.$store.commit('UPDATE_DURATION_TYPE', 'long')
+    switchDuration () {
+      if (this.durationType === 'long') {
+        this.$store.commit('UPDATE_DURATION_TYPE', 'short')
+      } else {
+        this.$store.commit('UPDATE_DURATION_TYPE', 'long')
+      }
     }
   },
   computed: {
@@ -97,7 +98,7 @@ export default {
       width: 50%;
       height: 100%;
       position: absolute;
-      transition: transform .2s cubic-bezier(0.65, 0, 0.35, 1);
+      transition: transform .4s cubic-bezier(0.65, 0, 0.35, 1);
       
       &--short {
         transform: translateX(0);
