@@ -12,24 +12,26 @@
       </svg>
       Back
     </router-link>
-    
-    <BreathingRing :breathing="breathing" />
 
-    <footer class="breathe-page__footer">
-      <div v-if="breathing" class="breathe-page__instructions">
-        <span class="breathe-page__label">
-          Breathe in
-        </span>
-        <span class="breathe-page__label breathe-page__label--animation-delayed">
-          Breathe out
-        </span>
-      </div>
-      <PrimaryButton
-        v-else
-        label="Start"
-        @clickButton="startBreathing"
-      />
-    </footer>
+    <main class="breathe-page__main">
+      <BreathingRing :breathing="breathing" />
+
+      <footer class="breathe-page__footer">
+        <div v-if="breathing" class="breathe-page__instructions">
+          <span class="breathe-page__label">
+            Breathe in
+          </span>
+          <span class="breathe-page__label breathe-page__label--animation-delayed">
+            Breathe out
+          </span>
+        </div>
+        <PrimaryButton
+          v-else
+          label="Start"
+          @clickButton="startBreathing"
+        />
+      </footer>
+    </main>
   </div>
 </template>
 
@@ -66,6 +68,9 @@ export default {
     align-items: center;
     display: flex;
     justify-content: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
 
     &__back-button {
       align-items: center;
@@ -91,11 +96,20 @@ export default {
       }
     }
 
+    &__main {
+      align-items: center;
+      display: flex;
+      height: 624px;
+      justify-content: center;
+      position: relative;
+      width: 300px;
+    }
+
     &__footer {
+      bottom: 0;
       height: 40px;
       position: absolute;
-      transform: translateY(292px);
-      width: 320px;
+      width: 100%;
     }
 
     &__instructions {

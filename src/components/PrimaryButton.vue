@@ -51,8 +51,9 @@ export default {
     justify-content: center;
     outline: none;
     padding: 0 16px;
-    transition: all .3s ease-in-out;
     text-decoration: none;
+    transition: transform .3s ease-in-out;
+    transform: translateY(0);
     user-select: none;
     width: 100%;
 

@@ -55,14 +55,15 @@ export default {
   .home-page {
     display: flex;
     flex-direction: column;
+    height: 624px;
     gap: 64px;
   
     &__header {
       align-items: center;
       display: flex;
+      flex: 1;
       flex-direction: column;
       justify-content: center;
-      height: 196px;
     }
 
     &__title {
