@@ -39,19 +39,13 @@ import PrimaryButton from '@/components/PrimaryButton'
 
 export default {
   components: { BreathingRing, PrimaryButton },
-  props: {
-    duration: {
-      type: Number,
-      default: 10000
-    }
-  },
   data: () => ({
     breathing: false
   }),
   methods: {
     startBreathing () {
       this.breathing = true
-      setTimeout(() => this.breathing = false, this.duration)
+      setTimeout(() => this.breathing = false, this.$store.state.breathingDuration)
     }
     // playAudio () {
     //   const audio = new Audio(require('./assets/goutte.mp3'))
