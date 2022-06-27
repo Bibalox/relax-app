@@ -12,26 +12,50 @@
       </svg>
       Back
     </router-link>
-    <main class="breathe-page__main">
-      <BreathingRing :breathing="true" />
-      <span class="breathe-page__breathe-helper">
-        Breathe in
-      </span>
-      <span class="breathe-page__breathe-helper breathe-page__breathe-helper--animation-delayed">
-        Breathe out
-      </span>
-    </main>
+    
+    <BreathingRing :breathing="breathing" />
+
+    <footer class="breathe-page__footer">
+
+      <transition>
+        <div v-if="breathing" class="breathe-page__instructions">
+          <span class="breathe-page__label">
+            Breathe in
+          </span>
+          <span class="breathe-page__label breathe-page__label--animation-delayed">
+            Breathe out
+          </span>
+        </div>
+          <PrimaryButton
+            v-else
+            label="Start"
+            @clickButton="startBreathing"
+          />
+      </transition>
+    </footer>
   </div>
 </template>
 
 <script>
 import BreathingRing from '@/components/BreathingRing'
+import PrimaryButton from '@/components/PrimaryButton'
 
 export default {
-  components: {
-    BreathingRing
+  components: { BreathingRing, PrimaryButton },
+  props: {
+    duration: {
+      type: Number,
+      default: 10000
+    }
   },
+  data: () => ({
+    breathing: false
+  }),
   methods: {
+    startBreathing () {
+      this.breathing = true
+      setTimeout(() => this.breathing = false, this.duration)
+    }
     // playAudio () {
     //   const audio = new Audio(require('./assets/goutte.mp3'))
     //   audio.play()
@@ -63,41 +87,44 @@ export default {
       position: absolute;
       text-decoration: none;
       top: 24px;
+      transition: background-color .4s ease-in-out;
       left: 32px;
+
+      &:hover {
+        background-color: var(--secondary--disabled);
+      }
     }
 
-    &__main {
+    &__footer {
+      height: 40px;
+      position: absolute;
+      transform: translateY(292px);
+      width: 320px;
+    }
+
+    &__instructions {
       align-items: center;
       display: flex;
-      flex-direction: column;
+      height: 40px;
       justify-content: center;
-      height: 624px;
-      position: relative;
-      width: 320px;
-
+      width: 100%;
     }
   
-    &__breathe-helper {
-      align-items: center;
+    &__label {
       animation: fadeInOut 10s ease-in-out infinite both;
-      bottom: 0;
       color: var(--secondary--default);
-      display: flex;
       font-family: 'Poppins', sans-serif;
       font-size: 16px;
       font-weight: 500;
       opacity: 0;
       position: absolute;
-      height: 40px;
-      justify-content: center;
-      width: 100%;
 
       &--animation-delayed {
         animation-delay: 5s;
       }
 
       @keyframes fadeInOut {
-        5%, 55% {
+        5%, 45% {
           opacity: 0;
         }
 

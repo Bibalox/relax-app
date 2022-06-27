@@ -1,12 +1,20 @@
 <template>
   <div class="home-page">
-      <router-link to="/breathe">Continue</router-link>
+      <PrimaryButton
+        label="continue"
+        route="/breathe"
+      />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
+import PrimaryButton from '@/components/PrimaryButton'
 
+export default {
+  components: {
+    PrimaryButton
+  }
+}
 </script>
 
 <style lang="scss">
