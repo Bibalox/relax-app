@@ -5,6 +5,15 @@
     </header>
     <main class="home-page__main">
       <DurationSwitch />
+      <div class="home-page__fine-settings">
+        <SettingToggle
+          v-for="setting in fineSettings"
+          :key="setting.value"
+          :label="setting.label"
+          :disabled="setting.disabled"
+          :value="setting.value"
+        />
+      </div>
       <PrimaryButton
         label="Continue"
         route="/breathe"
@@ -14,16 +23,31 @@
 </template>
 
 <script>
-// import { mapState } from 'vuex'
-
 import DurationSwitch from '@/components/DurationSwitch'
 import PrimaryButton from '@/components/PrimaryButton'
+import SettingToggle from '@/components/SettingToggle'
 
 export default {
-  components: { DurationSwitch, PrimaryButton },
-  // computed: {
-  //   ...mapState({ soundEnabled })
-  // }
+  components: { DurationSwitch, PrimaryButton, SettingToggle },
+  data: () => ({
+    fineSettings: [
+      {
+        label: 'Interface sounds',
+        value: 'soundEnabled',
+        disabled: false
+      },
+      {
+        label: 'Ambiant music',
+        value: 'musicEnabled',
+        disabled: true
+      },
+      {
+        label: 'Vibrations',
+        value: 'vibrationEnabled',
+        disabled: true
+      }
+    ]
+  })
 }
 </script>
 
@@ -58,6 +82,15 @@ export default {
       flex-direction: column;
       gap: 80px;
       width: 300px;
-    } 
+    }
+
+    &__fine-settings {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 0 4px;
+      width: 100%;
+    }
   }
 </style>

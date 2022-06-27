@@ -2,13 +2,13 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
+    durationType: 'short',
     soundEnabled: false,
-    vibrationEnabled: false,
     musicEnabled: false,
-    durationType: 'short'
+    vibrationEnabled: false
   },
   getters: {
-    duration: state => {
+    duration (state) {
       const shortDuration = .5 * 10000
       const longDuration = 1 * 10000
 
@@ -26,8 +26,8 @@ export default createStore({
     UPDATE_DURATION_TYPE (state, durationType) {
       state.durationType = durationType
     },
-    TOGGLE_STATE (state, boolean) {
-      state[boolean] = !state[boolean]
+    TOGGLE_STATE (state, key) {
+      state[key] = !state[key]
     }
   },
   actions: {
