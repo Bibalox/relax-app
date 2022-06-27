@@ -45,13 +45,18 @@ export default {
   methods: {
     startBreathing () {
       this.breathing = true
-      setTimeout(() => this.breathing = false, this.$store.state.breathingDuration)
+      setTimeout(() => this.breathing = false, this.duration)
     }
     // playAudio () {
     //   const audio = new Audio(require('./assets/goutte.mp3'))
     //   audio.play()
     //   console.log('Button pressed')
     // }
+  },
+  computed: {
+    duration () {
+      return this.$store.state.breathingCycles * 10000
+    }
   }
 }
 </script>

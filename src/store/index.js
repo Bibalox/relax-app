@@ -5,7 +5,7 @@ export default createStore({
     soundEnabled: false,
     vibrationEnabled: false,
     musicEnabled: false,
-    breathingDuration: 10000
+    breathingCycles: 1
   },
   mutations: {
   },
