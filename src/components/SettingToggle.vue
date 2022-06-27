@@ -78,6 +78,7 @@ export default {
       font-size: 1.6rem;
       font-weight: 500;
       text-align: left;
+      user-select: none;
     }
 
     &__toggle {

@@ -53,6 +53,7 @@ export default {
     padding: 0 16px;
     transition: all .3s ease-in-out;
     text-decoration: none;
+    user-select: none;
     width: 100%;
 
     &:hover {

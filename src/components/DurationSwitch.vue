@@ -85,6 +85,7 @@ export default {
       height: 100%;
       padding: 0;
       transition: color .2s .1s ease-out;
+      user-select: none;
 
       &--active {
         color: var(--primary--darker);

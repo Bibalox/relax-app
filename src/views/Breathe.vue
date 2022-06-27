@@ -114,6 +114,7 @@ export default {
       font-weight: 500;
       opacity: 0;
       position: absolute;
+      user-select: none;
 
       &--animation-delayed {
         animation-delay: 5s;
