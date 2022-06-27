@@ -108,6 +108,7 @@ export default {
       top: 24px;
       transition: background-color .4s ease-in-out;
       left: 32px;
+      user-select: none;
 
       &:hover {
         background-color: var(--secondary--disabled);
