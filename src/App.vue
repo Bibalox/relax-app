@@ -38,6 +38,11 @@ export default {
     touch-action: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
+  
+  span, title {
+    cursor: default;
+    user-select: none;
+  }
 
   body {
     background-color: var(--primary--default);
