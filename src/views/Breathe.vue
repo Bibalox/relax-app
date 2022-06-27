@@ -58,7 +58,7 @@ export default {
     //   audio.play()
     //   console.log('Button pressed')
     // }
-  },
+  }
 }
 </script>
 

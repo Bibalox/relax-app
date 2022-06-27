@@ -1,9 +1,9 @@
 <template>
   <div class="home-page">
-      <PrimaryButton
-        label="continue"
-        route="/breathe"
-      />
+    <PrimaryButton
+      label="Continue"
+      route="/breathe"
+    />
   </div>
 </template>
 
