@@ -46,13 +46,12 @@ export default {
 
   body {
     background-color: var(--primary--default);
-    height: 100vh;
-    height: 100dvh; // Fix for Safari iOS
+    height: 100%;
     margin: 0;
     overflow: hidden;
     padding: 0;
     position: fixed;
-    width: 100vw;
+    width: 100%;
   }
 
   #app {
