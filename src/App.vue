@@ -1,6 +1,6 @@
 <template>
   <router-view v-slot="{ Component }">
-    <transition name="slide-fade" mode="out-in">
+    <transition name="fade" mode="out-in">
       <component :is="Component" />
     </transition>
   </router-view>
@@ -63,19 +63,17 @@ export default {
     justify-content: center;
   }
 
-  .slide-fade-enter-active {
-    animation: slide-fade .5s ease-out;
+  .fade-enter-active {
+    animation: fade .5s ease-out;
   }
-  .slide-fade-leave-active {
-    animation: slide-fade .5s ease-out reverse;
+  .fade-leave-active {
+    animation: fade .5s ease-out reverse;
   }
-  @keyframes slide-fade {
+  @keyframes fade {
     0% {
-      transform: translateY(-5px);
       opacity: .1;
     }
     80% {
-      transform: translateY(0px);
       opacity: 1;
     }
   }
