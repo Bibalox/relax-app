@@ -6,6 +6,7 @@ module.exports = {
       display: "fullscreen",
       start_url: "/?fullscreen=true",
       theme_color: "#5DADE8",
+      orientation: "portrait"
     },
     name: "Relax",
     appleMobileWebAppStatusBarStyle: "black-translucent",
