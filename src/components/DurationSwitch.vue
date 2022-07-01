@@ -95,7 +95,7 @@ export default {
     &__active-marker {
       background-color: var(--secondary--default);
       border-radius: 99px;
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow--hard);
       width: 50%;
       height: 100%;
       position: absolute;

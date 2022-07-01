@@ -40,7 +40,7 @@ export default {
     background-color: var(--secondary--default);
     border: none;
     border-radius: 99px;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow--hard);
     box-sizing: border-box;
     color: var(--primary--darker);
     display: flex;

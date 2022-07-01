@@ -68,7 +68,15 @@ export default {
 
     &--disabled {
       cursor: default;
-      opacity: .2;
+
+      .setting-toggle__label {
+        color: var(--secondary--disabled);
+      }
+
+      .setting-toggle__knob {
+        background-color: var(--secondary--disabled);
+        box-shadow: var(--shadow--soft);
+      }
     }
 
     &__label {
@@ -93,7 +101,7 @@ export default {
     &__knob {
       background-color: var(--secondary--default);
       border-radius: 50%;
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow--hard);
       height: 26px;
       transition: transform .25s ease-in-out;
       width: 26px;
