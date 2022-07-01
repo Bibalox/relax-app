@@ -10,8 +10,8 @@ export default createStore({
   },
   getters: {
     duration (state) {
-      const shortDuration = 18 * 10000
-      const longDuration = 30 * 10000
+      const shortDuration = 3 * 60 / 10 * 10000 // First value is total duration in minutes, returned value is in milliseconds
+      const longDuration =  10 * 60 / 10 * 10000 // First value is total duration in minutes, returned value is in milliseconds
 
       switch (state.durationType) {
         case 'short':

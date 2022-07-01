@@ -1,9 +1,7 @@
 <template>
-  <router-view v-slot="{ Component }">
-    <transition name="fade" mode="out-in">
-      <component :is="Component" />
+    <transition name="route-fade">
+      <router-view />
     </transition>
-  </router-view>
 </template>
 
 <style lang="scss">
@@ -53,17 +51,15 @@
     justify-content: center;
   }
 
-  .fade-enter-active {
-    animation: fade .5s ease-out;
+  .route-fade-enter-active {
+    animation: route-fade 1.5s;
   }
-  .fade-leave-active {
-    animation: fade .5s ease-out reverse;
-  }
-  @keyframes fade {
+
+  @keyframes route-fade {
     0% {
-      opacity: .1;
+      opacity: 0;
     }
-    80% {
+    100% {
       opacity: 1;
     }
   }

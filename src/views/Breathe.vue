@@ -141,7 +141,7 @@ export default {
     }
   
     &__label {
-      animation: fadeInOut 10s ease-in-out infinite both;
+      animation: fade-in-out 10s ease-in-out infinite both;
       color: var(--secondary--default);
       font-family: 'Poppins', sans-serif;
       font-size: 1.6rem;
@@ -154,7 +154,7 @@ export default {
         animation-delay: 5s;
       }
 
-      @keyframes fadeInOut {
+      @keyframes fade-in-out {
         5%, 45% {
           opacity: 0;
         }
@@ -165,19 +165,18 @@ export default {
       }
     }
   }
-
-  .fade-enter-active {
-    animation: fade .5s;
-  }
-  .fade-leave-active {
-    animation: fade .5s reverse;
-  }
-  @keyframes fade {
-    0% {
+  
+  .fade {
+    &-enter, &-leave-to {
       opacity: 0;
     }
-    100% {
+
+    &-leave, &-enter-to {
       opacity: 1;
+    }
+
+    &-enter-active, &-leave-active {
+      transition: opacity .5s ease-out;
     }
   }
 </style>

@@ -23,7 +23,7 @@
         ]"
         @click="switchDuration"
       >
-        5 minutes
+        10 minutes
       </button>
     </div>
   </div>
