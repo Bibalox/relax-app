@@ -127,7 +127,7 @@ export default {
 
     &__footer {
       bottom: 0;
-      height: 40px;
+      height: 44px;
       position: absolute;
       width: 100%;
     }

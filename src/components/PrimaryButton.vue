@@ -39,7 +39,7 @@ export default {
     align-items: center;
     background-color: var(--secondary--default);
     border: none;
-    border-radius: 20px;
+    border-radius: 99px;
     box-shadow: var(--shadow);
     box-sizing: border-box;
     color: var(--primary--darker);
@@ -47,7 +47,7 @@ export default {
     font-family: 'Poppins', sans-serif;
     font-size: 1.6rem;
     font-weight: 500;
-    height: 40px;
+    height: 44px;
     justify-content: center;
     outline: none;
     padding: 0 16px;

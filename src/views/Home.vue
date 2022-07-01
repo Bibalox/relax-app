@@ -91,7 +91,7 @@ export default {
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 20px;
       padding: 0 4px;
       width: 100%;
     }

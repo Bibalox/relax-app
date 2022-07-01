@@ -86,24 +86,24 @@ export default {
       border-radius: 99px;
       box-sizing: border-box;
       padding: 3px;
-      height: 28px;
-      width: 48px;
+      height: 32px;
+      width: 54px;
     }
 
     &__knob {
       background-color: var(--secondary--default);
       border-radius: 50%;
       box-shadow: var(--shadow);
-      height: 22px;
+      height: 26px;
       transition: transform .25s ease-in-out;
-      width: 22px;
+      width: 26px;
 
       &--left {
         transform: translateX(0);
       }
 
       &--right {
-        transform: translateX(20px);
+        transform: translateX(22px);
       }
     }
   }

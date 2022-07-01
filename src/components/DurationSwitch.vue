@@ -60,7 +60,7 @@ export default {
     border-radius: 99px;
     box-sizing: border-box;
     padding: 4px;
-    height: 48px;
+    height: 50px;
     width: 100%;
 
     &__content {
