@@ -29,10 +29,10 @@ export default {
 
     --secondary--default: white;
     --secondary--transparent: rgba(255, 255, 255, 0.2);
-    --secondary--disabled: rgba(255, 255, 255, 0.15);
+    --secondary--disabled: rgba(255, 255, 255, 0.4);
 
     --shadow--hard: 0px 3px 12px 3px rgba(25, 74, 147, 0.15), 0px 2px 2px rgba(25, 74, 147, 0.25);
-    --shadow--soft: 0px 2px 12px 3px rgba(25, 74, 147, 0.05), 0px 2px 2px rgba(25, 74, 147, 0.05);
+    --shadow--soft: 0px 5px 12px 3px rgba(25, 74, 147, 0.05), 0px 5px 2px rgba(25, 74, 147, 0.05);
   }
 
   button, a {
