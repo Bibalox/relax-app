@@ -56,10 +56,7 @@ export default {
     startBreathing () {
       this.breathing = true
 
-      setTimeout(() => {
-        clearInterval(this.interval)
-        this.breathing = false
-      }, this.duration)
+      setTimeout(this.stopBreathing, this.duration)
 
       if (this.settings.soundEffectsEnabled) {
         this.audio.soundEffects.load()
@@ -68,6 +65,11 @@ export default {
           this.audio.soundEffects.play()
         }, 10000)
       }
+    },
+    stopBreathing () {
+      clearInterval(this.interval)
+      this.audio.soundEffects.pause()
+      this.breathing = false
     }
   },
   computed: {
@@ -75,8 +77,7 @@ export default {
     ...mapGetters(['duration'])
   },
   beforeUnmount () {
-    this.audio.soundEffects.pause()
-    clearInterval(this.interval)
+    this.stopBreathing()
   }
 }
 </script>
