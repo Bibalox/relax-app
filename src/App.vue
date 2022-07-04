@@ -1,12 +1,13 @@
 <template>
-  <router-view v-slot="{ Component }" @touchstart="preventSwipeNavigation">
+  <!-- <router-view v-slot="{ Component }" @touchstart="preventSwipeNavigation">
     <transition
       name="route-transition"
       mode="out-in"
     >
       <component :is="Component"/>
     </transition>
-  </router-view>
+  </router-view> -->
+  <router-view />
 </template>
 
 <script>
@@ -66,31 +67,31 @@ export default {
     justify-content: center;
   }
 
-  .route-transition {
-    &-enter-active {
-      animation: fade-in .5s;
-    }
+  // .route-transition {
+  //   &-enter-active {
+  //     animation: fade-in .5s;
+  //   }
 
-    &-leave-active {
-      animation: fade-out .5s;
-    }
+  //   &-leave-active {
+  //     animation: fade-out .5s;
+  //   }
 
-    @keyframes fade-in {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
+  //   @keyframes fade-in {
+  //     0% {
+  //       opacity: 0;
+  //     }
+  //     100% {
+  //       opacity: 1;
+  //     }
+  //   }
 
-    @keyframes fade-out {
-      0% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-      }
-    }
-  }
+  //   @keyframes fade-out {
+  //     0% {
+  //       opacity: 1;
+  //     }
+  //     100% {
+  //       opacity: 0;
+  //     }
+  //   }
+  // }
 </style>
