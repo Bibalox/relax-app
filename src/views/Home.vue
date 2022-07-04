@@ -58,7 +58,6 @@ export default {
     gap: 64px;
     height: 80vh;
     max-height: 624px;
-    z-index: 20; // Place the page above the swipe nav blocker
   
     &__header {
       align-items: center;

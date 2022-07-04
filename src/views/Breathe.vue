@@ -89,7 +89,6 @@ export default {
     position: relative;
     height: 100%;
     width: 100%;
-    z-index: 20; // Place the page above the swipe nav blocker
 
     &__back-button {
       align-items: center;
@@ -110,6 +109,7 @@ export default {
       transition: background-color .4s ease-in-out;
       left: 32px;
       user-select: none;
+      z-index: 20; // Place the element above the swipe nav blocker
 
       &:hover {
         background-color: var(--secondary--disabled);
