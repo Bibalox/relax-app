@@ -44,7 +44,7 @@ export default {
       {
         label: 'Vibrations',
         name: 'vibrationsEnabled',
-        disabled: navigator.userAgent.indexOf("android") > -1 ? false : true
+        disabled: navigator.userAgent.toLowerCase().includes('android') ? false : true
       }
     ]
   })
