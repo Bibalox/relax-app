@@ -17,9 +17,7 @@
 export default {
   methods: {
     preventSwipeNavigation (e) {
-      // console.log(e.pageX, window.innerWidth - 32)
-      // if (e.pageX > 32 && e.pageX < window.innerWidth - 32) return
-      console.log('Swipe blocked')
+      if (e.pageX > 32 && e.pageX < window.innerWidth - 32) return
       e.preventDefault()
     }
   }
