@@ -1,8 +1,4 @@
 <template>
-  <!-- <div
-    class="swipe-nav-blocker"
-    @touchstart="preventSwipeNavigation"
-  /> -->
   <router-view v-slot="{ Component }" @touchstart="preventSwipeNavigation">
     <transition
       name="route-transition"
@@ -69,14 +65,6 @@ export default {
     height: 100%;
     justify-content: center;
   }
-
-  // .swipe-nav-blocker {
-  //   background-color: rgba(255, 0, 0, .2);
-  //   height: 100%;
-  //   position: fixed;
-  //   width: 100%;
-  //   z-index: 10; // Place this item below the pages
-  // }
 
   .route-transition {
     &-enter-active {
