@@ -39,7 +39,7 @@ export default {
       {
         label: 'Ambiant music',
         name: 'musicEnabled',
-        disabled: true
+        disabled: false
       },
       {
         label: 'Vibrations',

@@ -50,7 +50,7 @@ export default {
   components: { BreathingRing, PrimaryButton },
   data: () => ({
     breathing: false,
-    interval: null
+    soundEffectsInterval: null
   }),
   methods: {
     startBreathing () {
@@ -58,23 +58,39 @@ export default {
 
       setTimeout(this.stopBreathing, this.duration)
 
+      // Sound effects
+
       if (this.settings.soundEffectsEnabled) {
-        this.audio.soundEffects.load()
-        this.audio.soundEffects.play()
-        this.interval = setInterval(() => {
-          this.audio.soundEffects.play()
+        this.soundEffects.load()
+        this.soundEffects.play()
+        this.soundEffectsInterval = setInterval(() => {
+          this.soundEffects.play()
         }, 10000)
+      }
+
+      // Ambiant music
+
+      if (this.settings.musicEnabled) {
+        this.music.load()
+        this.music.play()
       }
     },
     stopBreathing () {
-      clearInterval(this.interval)
-      this.audio.soundEffects.pause()
+      clearInterval(this.soundEffectsInterval)
+      this.soundEffects.pause()
+      this.music.pause()
       this.breathing = false
     }
   },
   computed: {
     ...mapState(['settings', 'audio']),
-    ...mapGetters(['duration'])
+    ...mapGetters(['duration']),
+    soundEffects () {
+      return this.audio.soundEffects
+    },
+    music () {
+      return this.audio.music[this.settings.activityType]
+    }
   },
   beforeUnmount () {
     this.stopBreathing()

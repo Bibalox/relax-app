@@ -9,7 +9,11 @@ export default createStore({
       vibrationEnabled: false
     },
     audio: {
-      soundEffects: new Audio(require('@/assets/sound-effects.mp3'))
+      soundEffects: new Audio(require('@/assets/sound-effects.mp3')),
+      music: {
+        short: new Audio(require('@/assets/music-short.mp3')),
+        long: new Audio(require('@/assets/music-long.mp3'))
+      }
     }
   },
   getters: {
