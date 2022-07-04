@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="breathe-page"
-    @touchstart="preventSwipeBack"
-  >
+  <div class="breathe-page">
     <router-link
       class="breathe-page__back-button"
       to="/"
@@ -71,9 +68,6 @@ export default {
           this.audio.soundEffects.play()
         }, 10000)
       }
-    },
-    preventSwipeBack (e) {
-      e.preventDefault()
     }
   },
   computed: {
