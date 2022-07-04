@@ -72,6 +72,7 @@ export default {
   }
 
   .swipe-nav-blocker {
+    background-color: rgba(255, 0, 0, .2);
     height: 100%;
     position: fixed;
     width: 100%;
