@@ -76,7 +76,7 @@ export default {
     height: 100%;
     position: fixed;
     width: 100%;
-    z-index: 10; // Place this item below the pages
+    z-index: 30; // Place this item below the pages
   }
 
   .route-transition {
