@@ -51,13 +51,10 @@ export default {
     justify-content: center;
     outline: none;
     padding: 0 16px;
-    position: relative;
     text-decoration: none;
     transition: box-shadow .3s ease-in-out;
-    transform: translateY(0);
     user-select: none;
     width: 100%;
-    z-index: 20; // Place the element above the swipe nav blocker
 
     &:hover {
       box-shadow: 0px 8px 12px 3px rgba(25, 74, 147, 0.25), 0px 3px 4px rgba(25, 74, 147, 0.25);

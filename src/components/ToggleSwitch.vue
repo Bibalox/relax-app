@@ -61,7 +61,6 @@ export default {
     display: flex;
     padding: 0;
     width: 100%;
-    z-index: 20; // Place the element above the swipe nav blocker
 
     &--disabled {
       cursor: default;

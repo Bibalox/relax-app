@@ -58,6 +58,10 @@ export default {
     gap: 64px;
     height: 80vh;
     max-height: 624px;
+
+    @media (max-height: 800px) {
+      gap: 32px;
+    }
   
     &__header {
       align-items: center;

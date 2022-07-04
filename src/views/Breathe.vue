@@ -109,7 +109,6 @@ export default {
       transition: background-color .4s ease-in-out;
       left: 32px;
       user-select: none;
-      z-index: 20; // Place the element above the swipe nav blocker
 
       &:hover {
         background-color: var(--secondary--disabled);
