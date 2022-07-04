@@ -2,33 +2,32 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    durationType: 'short',
-    soundEnabled: true,
-    musicEnabled: false,
-    vibrationEnabled: false,
-    interfaceSound: new Audio(require('@/assets/interface-sound.mp3'))
+    settings: {
+      activityType: 'short',
+      soundEffectsEnabled: true,
+      musicEnabled: false,
+      vibrationEnabled: false
+    },
+    audio: {
+      soundEffects: new Audio(require('@/assets/sound-effects.mp3'))
+    }
   },
   getters: {
     duration (state) {
-      const shortDuration = 3 * 60 / 10 * 10000 // First value is total duration in minutes, returned value is in milliseconds
-      const longDuration =  10 * 60 / 10 * 10000 // First value is total duration in minutes, returned value is in milliseconds
-
-      switch (state.durationType) {
-        case 'short':
-          return shortDuration
-        case 'long':
-          return longDuration
-        default:
-          return shortDuration
+      const durations = {
+        short: 3 * 60 * 1000, // Convert minutes into milliseconds
+        long: 10 * 60 * 1000
       }
+
+      return durations[state.settings.activityType]
     }
   },
   mutations: {
-    UPDATE_DURATION_TYPE (state, durationType) {
-      state.durationType = durationType
+    UPDATE_ACTIVITY_TYPE (state, type) {
+      state.settings.activityType = type
     },
-    TOGGLE_STATE (state, key) {
-      state[key] = !state[key]
+    TOGGLE_SETTING (state, key) {
+      state.settings[key] = !state.settings[key]
     }
   },
   actions: {

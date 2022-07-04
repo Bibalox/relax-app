@@ -4,14 +4,14 @@
       <h1 class="home-page__title">It's time<br/>to relax</h1>
     </header>
     <main class="home-page__main">
-      <DurationSwitch />
-      <div class="home-page__fine-settings">
-        <SettingToggle
-          v-for="setting in fineSettings"
-          :key="setting.value"
-          :label="setting.label"
-          :disabled="setting.disabled"
-          :value="setting.value"
+      <SegmentedControl />
+      <div class="home-page__toggle-switches">
+        <ToggleSwitch
+          v-for="toggleSwitch in toggleSwitches"
+          :key="toggleSwitch.name"
+          :label="toggleSwitch.label"
+          :name="toggleSwitch.name"
+          :disabled="toggleSwitch.disabled"
         />
       </div>
       <PrimaryButton
@@ -23,27 +23,27 @@
 </template>
 
 <script>
-import DurationSwitch from '@/components/DurationSwitch'
+import SegmentedControl from '@/components/SegmentedControl'
+import ToggleSwitch from '@/components/ToggleSwitch'
 import PrimaryButton from '@/components/PrimaryButton'
-import SettingToggle from '@/components/SettingToggle'
 
 export default {
-  components: { DurationSwitch, PrimaryButton, SettingToggle },
+  components: { SegmentedControl, ToggleSwitch, PrimaryButton },
   data: () => ({
-    fineSettings: [
+    toggleSwitches: [
       {
-        label: 'Interface sounds',
-        value: 'soundEnabled',
+        label: 'Sound effects',
+        name: 'soundEffectsEnabled',
         disabled: false
       },
       {
         label: 'Ambiant music',
-        value: 'musicEnabled',
+        name: 'musicEnabled',
         disabled: true
       },
       {
         label: 'Vibrations',
-        value: 'vibrationEnabled',
+        name: 'vibrationEnabled',
         disabled: true
       }
     ]
@@ -69,6 +69,7 @@ export default {
 
     &__title {
       color: var(--secondary--default);
+      cursor: default;
       font-family: 'Poppins', sans-serif;
       font-size: 4.8rem;
       font-weight: 700;
@@ -87,7 +88,7 @@ export default {
       width: 300px;
     }
 
-    &__fine-settings {
+    &__toggle-switches {
       box-sizing: border-box;
       display: flex;
       flex-direction: column;

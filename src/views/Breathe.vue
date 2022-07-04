@@ -61,21 +61,21 @@ export default {
         this.breathing = false
       }, this.duration)
 
-      if (this.soundEnabled) {
-        this.interfaceSound.load()
-        this.interfaceSound.play()
+      if (this.settings.soundEffectsEnabled) {
+        this.audio.soundEffects.load()
+        this.audio.soundEffects.play()
         this.interval = setInterval(() => {
-          this.interfaceSound.play()
+          this.audio.soundEffects.play()
         }, 10000)
       }
     }
   },
   computed: {
-    ...mapState(['soundEnabled', 'interfaceSound']),
+    ...mapState(['settings', 'audio']),
     ...mapGetters(['duration'])
   },
   beforeUnmount () {
-    this.interfaceSound.pause()
+    this.audio.soundEffects.pause()
     clearInterval(this.interval)
   }
 }

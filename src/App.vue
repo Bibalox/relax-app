@@ -28,7 +28,6 @@
   }
   
   span, title {
-    cursor: default;
     user-select: none;
   }
 

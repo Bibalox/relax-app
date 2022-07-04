@@ -69,34 +69,32 @@ export default {
     height: 320px;
     width: 320px;
 
-    &--breathing {
-      .breathing-ring__inner-ring {
-        animation: innerRingBreathing 5s .2s alternate infinite ease-in-out;
-        transform-origin: 160px 160px;
-        
-        @keyframes innerRingBreathing {
-          from {
-            transform: scale(1);
-          }
+    &--breathing &__inner-ring {
+      animation: innerRingBreathing 5s .2s alternate infinite ease-in-out;
+      transform-origin: 160px 160px;
+      
+      @keyframes innerRingBreathing {
+        from {
+          transform: scale(1);
+        }
 
-          to {
-            transform: scale(3);
-          }
+        to {
+          transform: scale(3);
         }
       }
-      
-      .breathing-ring__center-ring {
-        animation: centerRingBreathing 5s alternate infinite ease-in-out;
-        transform-origin: 160px 160px;
+    }
+    
+    &--breathing &__center-ring {
+      animation: centerRingBreathing 5s alternate infinite ease-in-out;
+      transform-origin: 160px 160px;
 
-        @keyframes centerRingBreathing {
-          from {
-            transform: scale(1);
-          }
+      @keyframes centerRingBreathing {
+        from {
+          transform: scale(1);
+        }
 
-          to {
-            transform: scale(1.5);
-          }
+        to {
+          transform: scale(1.5);
         }
       }
     }

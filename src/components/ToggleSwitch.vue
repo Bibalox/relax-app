@@ -1,21 +1,21 @@
 <template>
   <button
     :class="[
-      'setting-toggle',
-      { 'setting-toggle--disabled' : disabled }
+      'toggle-switch',
+      { 'toggle-switch--disabled' : disabled }
     ]"
     :disabled="disabled"
     @click="toggleSetting"
   >
     <span
-      class="setting-toggle__label"
+      class="toggle-switch__label"
       v-text="label"
     />
-    <div class="setting-toggle__toggle">
+    <div class="toggle-switch__switch">
       <div
         :class="[
-          'setting-toggle__knob',
-          `setting-toggle__knob--${key ? 'right' : 'left'}`
+          'toggle-switch__knob',
+          `toggle-switch__knob--${settingEnabled ? 'right' : 'left'}`
         ]"
       />
     </div>
@@ -23,40 +23,36 @@
 </template>
 
 <script>
-// import { mapState } from 'vuex'
-
 export default {
   props: {
     label: {
       type: String,
-      default: '',
       required: true
     },
     disabled: {
       type: Boolean,
       default: false
     },
-    value: {
+    name: {
       type: String,
-      default: '',
       required: true
     }
   },
   methods: {
     toggleSetting () {
-      this.$store.commit('TOGGLE_STATE', this.value)
+      this.$store.commit('TOGGLE_SETTING', this.name)
     }
   },
   computed: {
-    key () {
-      return this.$store.state[this.value]
+    settingEnabled () {
+      return this.$store.state.settings[this.name]
     }
   }
 }
 </script>
 
 <style lang="scss">
-  .setting-toggle {
+  .toggle-switch {
     align-items: center;
     background-color: transparent;
     border: none;
@@ -69,11 +65,11 @@ export default {
     &--disabled {
       cursor: default;
 
-      .setting-toggle__label {
+      .toggle-switch__label {
         color: var(--secondary--disabled);
       }
 
-      .setting-toggle__knob {
+      .toggle-switch__knob {
         background-color: var(--secondary--disabled);
         box-shadow: var(--shadow--soft);
       }
@@ -89,7 +85,7 @@ export default {
       user-select: none;
     }
 
-    &__toggle {
+    &__switch {
       background-color: var(--secondary--transparent);
       border-radius: 99px;
       box-sizing: border-box;

@@ -1,16 +1,16 @@
 <template>
-  <div class="duration-switch">
-    <div class="duration-switch__content">
+  <div class="segmented-control">
+    <div class="segmented-control__content">
       <div
         :class="[
-          'duration-switch__active-marker',
-          `duration-switch__active-marker--${durationType}`
+          'segmented-control__active-option-indicator',
+          `segmented-control__active-option-indicator--${settings.activityType}`
         ]"
       />
       <button
         :class="[
-          'duration-switch__button',
-          { 'duration-switch__button--active' : durationType === 'short' }
+          'segmented-control__option',
+          { 'segmented-control__option--active' : settings.activityType === 'short' }
         ]"
         @click="switchDuration"
       >
@@ -18,8 +18,8 @@
       </button>
       <button
         :class="[
-          'duration-switch__button',
-          { 'duration-switch__button--active' : durationType === 'long' }
+          'segmented-control__option',
+          { 'segmented-control__option--active' : settings.activityType === 'long' }
         ]"
         @click="switchDuration"
       >
@@ -33,29 +33,23 @@
 import { mapState } from 'vuex'
 
 export default {
-  props: {
-    breathing: {
-      type: Boolean,
-      default: false
-    }
-  },
   methods: {
     switchDuration () {
-      if (this.durationType === 'long') {
-        this.$store.commit('UPDATE_DURATION_TYPE', 'short')
+      if (this.settings.activityType === 'long') {
+        this.$store.commit('UPDATE_ACTIVITY_TYPE', 'short')
       } else {
-        this.$store.commit('UPDATE_DURATION_TYPE', 'long')
+        this.$store.commit('UPDATE_ACTIVITY_TYPE', 'long')
       }
     }
   },
   computed: {
-    ...mapState(['durationType'])
+    ...mapState(['settings'])
   }
 }
 </script>
 
 <style lang="scss">
-  .duration-switch {
+  .segmented-control {
     background-color: var(--secondary--transparent);
     border-radius: 99px;
     box-sizing: border-box;
@@ -71,7 +65,7 @@ export default {
       width: 100%;
     }
 
-    &__button {
+    &__option {
       background-color: transparent;
       border: none;
       color: var(--secondary--default);
@@ -92,7 +86,7 @@ export default {
       }
     }
 
-    &__active-marker {
+    &__active-option-indicator {
       background-color: var(--secondary--default);
       border-radius: 99px;
       box-shadow: var(--shadow--hard);
