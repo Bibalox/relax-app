@@ -73,7 +73,7 @@ export default {
       }
     },
     preventSwipeBack (e) {
-      if (e.pageX > 10 && e.pageX < window.innerWidth - 10) return
+      if (e.pageX > 32 && e.pageX < window.innerWidth - 32) return
       e.preventDefault()
     }
   },
