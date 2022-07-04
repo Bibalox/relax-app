@@ -6,7 +6,7 @@ export default createStore({
       activityType: 'short',
       soundEffectsEnabled: true,
       musicEnabled: false,
-      vibrationEnabled: false
+      vibrationsEnabled: false
     },
     audio: {
       soundEffects: new Audio(require('@/assets/sound-effects.mp3')),

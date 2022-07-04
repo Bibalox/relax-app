@@ -43,8 +43,8 @@ export default {
       },
       {
         label: 'Vibrations',
-        name: 'vibrationEnabled',
-        disabled: true
+        name: 'vibrationsEnabled',
+        disabled: window.navigator.vibrate(0)
       }
     ]
   })

@@ -50,16 +50,15 @@ export default {
   components: { BreathingRing, PrimaryButton },
   data: () => ({
     breathing: false,
-    soundEffectsInterval: null
+    soundEffectsInterval: null,
+    vibrationsInterval: null
   }),
   methods: {
     startBreathing () {
       this.breathing = true
-
       setTimeout(this.stopBreathing, this.duration)
 
       // Sound effects
-
       if (this.settings.soundEffectsEnabled) {
         this.soundEffects.load()
         this.soundEffects.play()
@@ -69,14 +68,21 @@ export default {
       }
 
       // Ambiant music
-
       if (this.settings.musicEnabled) {
         this.music.load()
         this.music.play()
       }
+
+      // Vibrations
+      if (this.settings.vibrationsEnabled) {
+        this.vibrationsInterval = setInterval(() => {
+          navigator.vibrate(200)
+        }, 5000)
+      }
     },
     stopBreathing () {
       clearInterval(this.soundEffectsInterval)
+      clearInterval(this.vibrationsInterval)
       this.soundEffects.pause()
       this.music.pause()
       this.breathing = false
