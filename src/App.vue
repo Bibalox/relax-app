@@ -1,9 +1,12 @@
 <template>
-  <div
+  <!-- <div
     class="swipe-nav-blocker"
     @touchstart="preventSwipeNavigation"
-  />
-  <router-view v-slot="{ Component }">
+  /> -->
+  <router-view
+    v-slot="{ Component }"
+    @touchmove="preventSwipeNavigation"
+  >
     <transition
       name="route-transition"
       mode="out-in"
@@ -19,6 +22,7 @@ export default {
     preventSwipeNavigation (e) {
       // console.log(e.pageX, window.innerWidth - 32)
       // if (e.pageX > 32 && e.pageX < window.innerWidth - 32) return
+      // console.log('Swipe blocked')
       e.preventDefault()
     }
   }
@@ -71,13 +75,13 @@ export default {
     justify-content: center;
   }
 
-  .swipe-nav-blocker {
-    background-color: rgba(255, 0, 0, .2);
-    height: 100%;
-    position: fixed;
-    width: 100%;
-    z-index: 30; // Place this item below the pages
-  }
+  // .swipe-nav-blocker {
+  //   background-color: rgba(255, 0, 0, .2);
+  //   height: 100%;
+  //   position: fixed;
+  //   width: 100%;
+  //   z-index: 30; // Place this item below the pages
+  // }
 
   .route-transition {
     &-enter-active {
