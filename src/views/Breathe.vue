@@ -89,6 +89,7 @@ export default {
     position: relative;
     height: 100%;
     width: 100%;
+    z-index: 20; // Place the page above the swipe nav blocker
 
     &__back-button {
       align-items: center;

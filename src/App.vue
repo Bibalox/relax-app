@@ -1,15 +1,16 @@
 <template>
-    <router-view
-      v-slot="{ Component }"
-      @touchstart="preventSwipeNavigation"
+  <div
+    class="swipe-nav-blocker"
+    @touchstart="preventSwipeNavigation"
+  />
+  <router-view v-slot="{ Component }">
+    <transition
+      name="route-transition"
+      mode="out-in"
     >
-      <transition
-        name="route-transition"
-        mode="out-in"
-      >
-        <component :is="Component"/>
-      </transition>
-    </router-view>
+      <component :is="Component"/>
+    </transition>
+  </router-view>
 </template>
 
 <script>
@@ -68,6 +69,13 @@ export default {
     flex-direction: column;
     height: 100%;
     justify-content: center;
+  }
+
+  .swipe-nav-blocker {
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: 10; // Place this item below the pages
   }
 
   .route-transition {
