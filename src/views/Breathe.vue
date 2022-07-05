@@ -50,20 +50,28 @@ export default {
   components: { BreathingRing, PrimaryButton },
   data: () => ({
     breathing: false,
+    activityTimeout: null,
     soundEffectsInterval: null,
     vibrationsInterval: null
   }),
   methods: {
     startBreathing () {
       this.breathing = true
-      setTimeout(this.stopBreathing, this.duration)
+      
+      this.activityTimeout = setTimeout(() => {
+        if (this.settings.soundEffectsEnabled) {
+          this.endingSoundEffect.load()
+          this.endingSoundEffect.play()
+        }
+        this.stopBreathing()
+      }, this.duration)
 
       // Sound effects
       if (this.settings.soundEffectsEnabled) {
-        this.soundEffects.load()
-        this.soundEffects.play()
+        this.runningSoundEffect.load()
+        this.runningSoundEffect.play()
         this.soundEffectsInterval = setInterval(() => {
-          this.soundEffects.play()
+          this.runningSoundEffect.play()
         }, 10000)
       }
 
@@ -81,21 +89,37 @@ export default {
       }
     },
     stopBreathing () {
-      clearInterval(this.soundEffectsInterval)
-      clearInterval(this.vibrationsInterval)
-      this.soundEffects.pause()
-      this.music.pause()
       this.breathing = false
+      clearTimeout(this.activityTimeout)
+
+      // Sound effects
+      if (this.settings.soundEffectsEnabled) {
+      this.runningSoundEffect.pause()
+        clearInterval(this.soundEffectsInterval)
+      }
+
+      // Ambiant music
+      if (this.settings.musicEnabled) {
+        this.music.pause()
+      }
+
+      // Vibrations
+      if (this.settings.vibrationsEnabled) {
+        clearInterval(this.vibrationsInterval)
+      }
     }
   },
   computed: {
     ...mapState(['settings', 'audio']),
     ...mapGetters(['duration']),
-    soundEffects () {
-      return this.audio.soundEffects
+    runningSoundEffect () {
+      return this.audio.soundEffects.running
+    },
+    endingSoundEffect () {
+      return this.audio.soundEffects.ending
     },
     music () {
-      return this.audio.music[this.settings.activityType]
+      return this.audio.musics[this.settings.activityType]
     }
   },
   beforeUnmount () {
