@@ -4,7 +4,8 @@ module.exports = {
       name: "Time to relax",
       short_name: "Relax",
       display: "fullscreen",
-      start_url: "/?fullscreen=true",
+      start_url: "/",
+      id: "/",
       theme_color: "#5DADE8",
       orientation: "portrait"
     },
