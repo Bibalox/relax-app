@@ -1,7 +1,7 @@
 <template>
   <div class="breathe-page">
     <main class="breathe-page__main">
-      <BreathingRing :breathing="breathing" />
+      <BreathingRing :breathing="breathing" @click="startBreathing" />
 
       <footer class="breathe-page__footer">
         <transition name="fade" mode="out-in">
@@ -56,36 +56,38 @@ export default {
   }),
   methods: {
     startBreathing () {
-      this.breathing = true
-      
-      this.activityTimeout = setTimeout(() => {
+      if (!this.breathing) {
+        this.breathing = true
+        
+        this.activityTimeout = setTimeout(() => {
+          if (this.settings.soundEffectsEnabled) {
+            this.endingSoundEffect.load()
+            this.endingSoundEffect.play()
+          }
+          this.stopBreathing()
+        }, this.duration)
+
+        // Sound effects
         if (this.settings.soundEffectsEnabled) {
-          this.endingSoundEffect.load()
-          this.endingSoundEffect.play()
-        }
-        this.stopBreathing()
-      }, this.duration)
-
-      // Sound effects
-      if (this.settings.soundEffectsEnabled) {
-        this.runningSoundEffect.load()
-        this.runningSoundEffect.play()
-        this.soundEffectsInterval = setInterval(() => {
+          this.runningSoundEffect.load()
           this.runningSoundEffect.play()
-        }, 10000)
-      }
+          this.soundEffectsInterval = setInterval(() => {
+            this.runningSoundEffect.play()
+          }, 10000)
+        }
 
-      // Ambiant music
-      if (this.settings.musicEnabled) {
-        this.music.load()
-        this.music.play()
-      }
+        // Ambiant music
+        if (this.settings.musicEnabled) {
+          this.music.load()
+          this.music.play()
+        }
 
-      // Vibrations
-      if (this.settings.vibrationsEnabled) {
-        this.vibrationsInterval = setInterval(() => {
-          navigator.vibrate(200)
-        }, 5000)
+        // Vibrations
+        if (this.settings.vibrationsEnabled) {
+          this.vibrationsInterval = setInterval(() => {
+            navigator.vibrate(200)
+          }, 5000)
+        }
       }
     },
     stopBreathing () {

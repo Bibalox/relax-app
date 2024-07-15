@@ -5,6 +5,7 @@
     xmlns="http://www.w3.org/2000/svg"
     class="breathing-ring"
     :class="{ 'breathing-ring--breathing' : breathing }"
+    @click="click"
   >
     <circle
       class="breathing-ring__outer-ring"
@@ -60,17 +61,24 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  methods: {
+    click () {
+      this.$emit('click')
+    }
   }
 }
 </script>
 
 <style lang="scss">
   .breathing-ring {
+    cursor: pointer;
     height: 320px;
     width: 320px;
 
     &--breathing &__inner-ring {
       animation: innerRingBreathing 5s .2s alternate infinite ease-in-out;
+      cursor: default;
       transform-origin: 160px 160px;
       
       @keyframes innerRingBreathing {
