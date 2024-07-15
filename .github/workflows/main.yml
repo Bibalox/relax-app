@@ -22,5 +22,3 @@ jobs:
         FTP_PASSWORD: ${{ secrets.ftp_password }}
         LOCAL_DIR: dist/
         REMOTE_DIR: relax-app/
-
-name: 🚀 Deploy website on push
