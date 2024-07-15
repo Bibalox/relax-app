@@ -14,7 +14,7 @@ jobs:
         npm run build
     
     - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      uses: SamKirkland/FTP-Deploy-Action@2.0.0
       env:
         PORT: 22
         FTP_SERVER: ${{ secrets.ftp_server }}
@@ -22,3 +22,5 @@ jobs:
         FTP_PASSWORD: ${{ secrets.ftp_password }}
         LOCAL_DIR: dist/
         REMOTE_DIR: relax-app/
+
+name: 🚀 Deploy website on push
