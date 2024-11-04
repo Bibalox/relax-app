@@ -1,85 +1,53 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
   <RouterView />
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
+<style lang="scss">
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
+  
+  :root {
+    font-size: 10px;
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+    --primary--default: #5DADE8;
+    --primary--darker: #4899D4;
+    --primary--gradient: linear-gradient(180deg, #5DADE8 0%, #2E81BD 100%);
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
+    --secondary--default: white;
+    --secondary--transparent: rgba(255, 255, 255, 0.2);
+    --secondary--disabled: rgba(255, 255, 255, 0.4);
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
+    --shadow--hard: 0px 3px 12px 3px rgba(25, 74, 147, 0.15), 0px 2px 2px rgba(25, 74, 147, 0.25);
+    --shadow--soft: 0px 5px 12px 3px rgba(25, 74, 147, 0.05), 0px 5px 2px rgba(25, 74, 147, 0.05);
+  }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
+  button, a {
+    touch-action: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+  
+  span, title {
+    user-select: none;
+  }
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
+  body {
+    background-color: var(--primary--default);
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: fixed;
+    width: 100%;
+  }
 
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
+  #app {
+    align-items: center;
+    background: var(--primary--gradient);
     display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
   }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
 </style>
