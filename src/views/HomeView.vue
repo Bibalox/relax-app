@@ -1,14 +1,17 @@
 <script setup lang="ts">
-
+//import SegmentedControl from '@components/SegmentedControl.vue'
+import PrimaryButton from '@components/PrimaryButton.vue'
 </script>
 
 <template>
   <div class="home-view">
     <header class="home-view__header">
-      <h1 class="home-view__title">It's time<br/>to relax</h1>
+      <h1 class="home-view__title">
+        It's time<br />to relax
+      </h1>
     </header>
     <main class="home-view__main">
-      <SegmentedControl />
+      <segmented-control />
       <div class="home-view__toggle-switches">
         <!-- <ToggleSwitch
           v-for="toggleSwitch in toggleSwitches"
@@ -18,7 +21,7 @@
           :disabled="toggleSwitch.disabled"
         /> -->
       </div>
-      <PrimaryButton
+      <primary-button
         label="Continue"
         route="/breathe"
       />
