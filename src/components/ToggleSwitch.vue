@@ -1,25 +1,31 @@
 <script setup lang="ts">
+const props = defineProps<{ 
+  label: string,
+  active: boolean,
+  disabled: boolean
+}>()
 
+defineEmits(['click'])
 </script>
 
 <template>
   <button
     :class="[
       'toggle-switch',
-      { 'toggle-switch--disabled' : disabled }
+      { 'toggle-switch--disabled' : props.disabled }
     ]"
-    :disabled="disabled"
-    @click="toggleSetting"
+    :disabled="props.disabled"
+    @click="$emit('click')"
   >
     <span
       class="toggle-switch__label"
-      v-text="label"
+      v-text="props.label"
     />
     <div class="toggle-switch__switch">
       <div
         :class="[
           'toggle-switch__knob',
-          `toggle-switch__knob--${settingEnabled ? 'right' : 'left'}`
+          `toggle-switch__knob--${props.active ? 'right' : 'left'}`
         ]"
       />
     </div>
@@ -74,7 +80,7 @@
       border-radius: 50%;
       box-shadow: var(--shadow--hard);
       height: 26px;
-      transition: transform .25s ease-in-out;
+      transition: transform .3s ease-in-out;
       width: 26px;
 
       &--left {

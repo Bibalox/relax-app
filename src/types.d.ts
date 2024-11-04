@@ -1,5 +1,6 @@
 export type Durations = 'short' | 'long'
 
 export type GlobalState = {
-  duration: Durations
+  duration: Durations,
+  settings: { [key: string]: boolean }
 }

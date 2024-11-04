@@ -2,13 +2,37 @@
 import { reactive } from 'vue'
 
 import SegmentedControl from '@components/SegmentedControl.vue'
+import ToggleSwitch from '@components/ToggleSwitch.vue'
 import PrimaryButton from '@components/PrimaryButton.vue'
 
 import type { GlobalState } from 'src/types'
 
 const state: GlobalState = reactive({
-  duration: 'short'
+  duration: 'short',
+  settings: {
+    soundEffectsEnabled: true,
+    musicEnabled: false,
+    vibrationsEnabled: false
+  }
 })
+
+const toggleSwitches = [
+  {
+    label: 'Sound effects',
+    id: 'soundEffectsEnabled',
+    disabled: false
+  },
+  {
+    label: 'Ambiant music',
+    id: 'musicEnabled',
+    disabled: false
+  },
+  {
+    label: 'Vibrations',
+    id: 'vibrationsEnabled',
+    disabled: navigator.userAgent.toLowerCase().includes('android') ? false : true
+  }
+]
 </script>
 
 <template>
@@ -24,13 +48,14 @@ const state: GlobalState = reactive({
         @click="duration => state.duration = duration"
       />
       <div class="home-view__toggle-switches">
-        <!-- <ToggleSwitch
+        <toggle-switch
           v-for="toggleSwitch in toggleSwitches"
-          :key="toggleSwitch.name"
+          :key="toggleSwitch.id"
           :label="toggleSwitch.label"
-          :name="toggleSwitch.name"
           :disabled="toggleSwitch.disabled"
-        /> -->
+          :active="state.settings[toggleSwitch.id]"
+          @click="state.settings[toggleSwitch.id] = !state.settings[toggleSwitch.id]"
+        />
       </div>
       <primary-button
         label="Continue"
