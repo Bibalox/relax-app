@@ -1,5 +1,9 @@
 <script setup lang="ts">
+const props = defineProps<{ duration: Durations }>()
 
+import type { Durations } from 'src/types'
+
+defineEmits(['click'])
 </script>
 
 <template>
@@ -8,24 +12,24 @@
       <div
         :class="[
           'segmented-control__active-option-indicator',
-          `segmented-control__active-option-indicator--${settings.activityType}`
+          `segmented-control__active-option-indicator--${props.duration}`
         ]"
       />
       <button
         :class="[
           'segmented-control__option',
-          { 'segmented-control__option--active' : settings.activityType === 'short' }
+          { 'segmented-control__option--active' : props.duration === 'short' }
         ]"
-        @click="switchDuration"
+        @click="$emit('click', 'short')"
       >
         3 minutes
       </button>
       <button
         :class="[
           'segmented-control__option',
-          { 'segmented-control__option--active' : settings.activityType === 'long' }
+          { 'segmented-control__option--active' : props.duration === 'long' }
         ]"
-        @click="switchDuration"
+        @click="$emit('click', 'long')"
       >
         10 minutes
       </button>

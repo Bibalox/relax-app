@@ -38,22 +38,24 @@ defineEmits(['click'])
     border-radius: 99px;
     box-shadow: var(--shadow--hard);
     box-sizing: border-box;
+    cursor: pointer;
     display: flex;
     height: 44px;
     justify-content: center;
     outline: none;
     padding: 0 16px;
     text-decoration: none;
-    transition: box-shadow .3s ease-in-out;
+    transition: box-shadow .3s, transform .3s;
     width: 100%;
 
     &:hover {
       box-shadow: 0px 8px 12px 3px rgba(25, 74, 147, 0.25), 0px 3px 4px rgba(25, 74, 147, 0.25);
-      cursor: pointer;
+      transform: translateY(-2px);
     }
 
     &__label {
       color: var(--primary--darker);
+      cursor: inherit;
       font-family: 'Poppins', sans-serif;
       font-size: 1.6rem;
       font-weight: 500;

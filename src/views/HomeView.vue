@@ -1,6 +1,14 @@
 <script setup lang="ts">
-//import SegmentedControl from '@components/SegmentedControl.vue'
+import { reactive } from 'vue'
+
+import SegmentedControl from '@components/SegmentedControl.vue'
 import PrimaryButton from '@components/PrimaryButton.vue'
+
+import type { GlobalState } from 'src/types'
+
+const state: GlobalState = reactive({
+  duration: 'short'
+})
 </script>
 
 <template>
@@ -11,7 +19,10 @@ import PrimaryButton from '@components/PrimaryButton.vue'
       </h1>
     </header>
     <main class="home-view__main">
-      <segmented-control />
+      <segmented-control
+        :duration="state.duration"
+        @click="duration => state.duration = duration"
+      />
       <div class="home-view__toggle-switches">
         <!-- <ToggleSwitch
           v-for="toggleSwitch in toggleSwitches"
