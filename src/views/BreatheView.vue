@@ -1,27 +1,24 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
-
 import BreathingRing from '@components/BreathingRing.vue'
 import PrimaryButton from '@components/PrimaryButton.vue'
 
-const state = reactive ({
-  breathing: false
-})
+import { Store } from '@/store'
+const store = Store()
 
 const startBreathing = () => {
-  state.breathing = !state.breathing
+  store.breathing = !store.breathing
 }
 </script>
 
 <template>
   <div class="breathe-view">
     <main class="breathe-view__main">
-      <breathing-ring :breathing="state.breathing" @click="startBreathing" />
+      <breathing-ring :breathing="store.breathing" @click="startBreathing" />
 
       <footer class="breathe-view__footer">
         <transition name="fade" mode="out-in">
           <div
-            v-if="state.breathing"
+            v-if="store.breathing"
             class="breathe-view__instructions"
           >
             <span class="breathe-view__label">

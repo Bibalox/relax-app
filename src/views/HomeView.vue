@@ -4,8 +4,7 @@ import ToggleSwitch from '@components/ToggleSwitch.vue'
 import PrimaryButton from '@components/PrimaryButton.vue'
 
 import { Store } from '@/store'
-
-const state = Store()
+const store = Store()
 
 const settings = [
   {
@@ -35,8 +34,8 @@ const settings = [
     </header>
     <main class="home-view__main">
       <segmented-control
-        :duration="state.duration"
-        @click="duration => state.duration = duration"
+        :duration="store.duration"
+        @click="duration => store.duration = duration"
       />
       <div class="home-view__toggle-switches">
         <toggle-switch
@@ -44,8 +43,8 @@ const settings = [
           :key="setting.id"
           :label="setting.label"
           :disabled="setting.disabled"
-          :active="state.settings[setting.id]"
-          @click="state.settings[setting.id] = !state.settings[setting.id]"
+          :active="store.settings[setting.id]"
+          @click="store.settings[setting.id] = !store.settings[setting.id]"
         />
       </div>
       <primary-button

@@ -9,6 +9,7 @@ export const Store = defineStore('state', () => {
     musicEnabled: false,
     vibrationsEnabled: false
   }
+  const breathing = false
 
-  return { duration, settings }
+  return { duration, settings, breathing }
 })
