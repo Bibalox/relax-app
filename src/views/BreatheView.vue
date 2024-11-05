@@ -8,6 +8,8 @@ const store = Store()
 const startBreathing = () => {
   store.breathing = !store.breathing
 }
+
+store.breathing = false
 </script>
 
 <template>

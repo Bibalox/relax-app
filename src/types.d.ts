@@ -1,7 +1,8 @@
-export type Durations = 'short' | 'long'
-
-export type Settings = { [key: string]: {
-  label: string,
-  active: boolean,
-  disabled: boolean
-} }
+export interface Settings {
+  duration: 'short' | 'long'
+  toggles: { [key: string]: {
+    label: string,
+    active: boolean,
+    disabled: boolean
+  }}
+}

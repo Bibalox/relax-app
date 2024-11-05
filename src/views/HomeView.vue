@@ -16,17 +16,17 @@ const store = Store()
     </header>
     <main class="home-view__main">
       <segmented-control
-        :duration="store.duration"
-        @click="duration => store.duration = duration"
+        :duration="store.settings.duration"
+        @click="duration => store.settings.duration = duration"
       />
       <div class="home-view__toggle-switches">
         <toggle-switch
-          v-for="(setting, key) in store.settings"
+          v-for="(toggle, key) in store.settings.toggles"
           :key="key"
-          :label="setting.label"
-          :disabled="setting.disabled"
-          :active="setting.active"
-          @click="setting.active = !setting.active"
+          :label="toggle.label"
+          :disabled="toggle.disabled"
+          :active="toggle.active"
+          @click="toggle.active = !toggle.active"
         />
       </div>
       <primary-button
