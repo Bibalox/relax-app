@@ -7,7 +7,7 @@ import { Store } from '@/store'
 
 const state = Store()
 
-const toggleSwitches = [
+const settings = [
   {
     label: 'Sound effects',
     id: 'soundEffectsEnabled',
@@ -40,12 +40,12 @@ const toggleSwitches = [
       />
       <div class="home-view__toggle-switches">
         <toggle-switch
-          v-for="toggleSwitch in toggleSwitches"
-          :key="toggleSwitch.id"
-          :label="toggleSwitch.label"
-          :disabled="toggleSwitch.disabled"
-          :active="state.settings[toggleSwitch.id]"
-          @click="state.settings[toggleSwitch.id] = !state.settings[toggleSwitch.id]"
+          v-for="setting in settings"
+          :key="setting.id"
+          :label="setting.label"
+          :disabled="setting.disabled"
+          :active="state.settings[setting.id]"
+          @click="state.settings[setting.id] = !state.settings[setting.id]"
         />
       </div>
       <primary-button
