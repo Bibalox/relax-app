@@ -1,18 +1,26 @@
-type Durations = 'short' | 'long'
+interface DurationOption {
+  label: string,
+  value: number
+}
 
-export interface Settings {
-  duration: {
-    options: {
-      id: Durations,
-      label: string,
-      value: number
-    }[],
-    active: Durations
-  }
+export interface Duration {
+  options: {
+    short: DurationOption
+    long: DurationOption
+  },
+  active: 'short' | 'long'
+}
 
-  toggles: { [key: string]: {
+export interface Toggles {
+  [key: string]: {
     label: string,
     active: boolean,
     disabled: boolean
-  }}
+  }
+}
+
+interface Timers {
+  activityTimeout?: ReturnType<typeof setTimeout>
+  soundEffectInterval?: ReturnType<typeof setInterval> 
+  vibrationInterval?: ReturnType<typeof setInterval> 
 }

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Store } from '@/store'
-const store = Store()
+import { useSettings } from '@/store'
+const settings = useSettings()
 </script>
 
 <template>
@@ -9,17 +9,17 @@ const store = Store()
       <div
         :class="[
           'duration-picker__active-option-indicator',
-          `duration-picker__active-option-indicator--${store.settings.duration.active}`
+          `duration-picker__active-option-indicator--${settings.duration.active}`
         ]"
       />
       <button
-        v-for="duration in store.settings.duration.options"
-        :key="duration.id"
+        v-for="(duration, key) in settings.duration.options"
+        :key="key"
         :class="[
           'duration-picker__option',
-          { 'duration-picker__option--active' : store.settings.duration.active === duration.id }
+          { 'duration-picker__option--active' : settings.duration.active === key }
         ]"
-        @click="() => store.settings.duration.active = duration.id"
+        @click="() => settings.duration.active = key"
         v-text="duration.label"
       />
     </div>

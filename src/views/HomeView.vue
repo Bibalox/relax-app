@@ -3,8 +3,8 @@ import DurationPicker from '@/components/DurationPicker.vue'
 import ToggleSwitch from '@components/ToggleSwitch.vue'
 import PrimaryButton from '@components/PrimaryButton.vue'
 
-import { Store } from '@/store'
-const store = Store()
+import { useSettings } from '@/store'
+const settings = useSettings()
 </script>
 
 <template>
@@ -18,7 +18,7 @@ const store = Store()
       <duration-picker />
       <div class="home-view__toggle-switches">
         <toggle-switch
-          v-for="(toggle, key) in store.settings.toggles"
+          v-for="(toggle, key) in settings.toggles"
           :key="key"
           :label="toggle.label"
           :disabled="toggle.disabled"

@@ -1,26 +1,93 @@
 <script setup lang="ts">
+import { reactive, onBeforeUnmount } from 'vue'
+
 import BreathingRing from '@components/BreathingRing.vue'
 import PrimaryButton from '@components/PrimaryButton.vue'
 
-import { Store } from '@/store'
-const store = Store()
+import type { Timers } from '@/types'
+
+import { useData, useState, useSettings } from '@/store'
+const data = useData()
+const settings = useSettings()
+const state = useState()
+
+const timers: Timers = reactive({
+  activityTimeout: undefined,
+  soundEffectInterval: undefined,
+  vibrationInterval: undefined
+})
 
 const startBreathing = () => {
-  store.breathing = !store.breathing
+  state.breathing = true
+
+  timers.activityTimeout = setTimeout(() => {
+    if (settings.toggles.soundEffects.active) {
+      const audio = data.soundEffects.ending
+      audio.load()
+      audio.play()
+    }
+    stopBreathing()
+  }, settings.duration.options[settings.duration.active].value)
+
+  // Sound effects
+  if (settings.toggles.soundEffects.active) {
+    const audio = data.soundEffects.running
+    audio.load()
+    audio.play()
+    timers.soundEffectInterval = setInterval(() => {
+      audio.play()
+    }, 10000)
+  }
+
+  // Ambiant music
+  if (settings.toggles.music.active) {
+    const audio = data.musics[settings.duration.active]
+    audio.load()
+    audio.play()
+  }
+
+  // Vibrations
+  if (settings.toggles.vibrations.active) {
+    timers.vibrationInterval = setInterval(() => {
+      navigator.vibrate(200)
+    }, 5000)
+  }
 }
 
-store.breathing = false
+const stopBreathing = () => {
+  state.breathing = false
+
+  clearTimeout(timers.activityTimeout)
+
+  // Sound effects
+  if (settings.toggles.soundEffects.active) {
+    data.soundEffects.running.pause()
+    clearInterval(timers.soundEffectInterval)
+  }
+
+  // Ambiant music
+  if (settings.toggles.music.active) {
+    data.musics[settings.duration.active].pause()
+  }
+
+  // Vibrations
+  if (settings.toggles.vibrations.active) {
+    clearInterval(timers.vibrationInterval)
+  }
+}
+
+onBeforeUnmount(() => stopBreathing())
 </script>
 
 <template>
   <div class="breathe-view">
     <main class="breathe-view__main">
-      <breathing-ring :breathing="store.breathing" @click="startBreathing" />
+      <breathing-ring :breathing="state.breathing" @click="state.breathing ? stopBreathing() : startBreathing()" />
 
       <footer class="breathe-view__footer">
         <transition name="fade" mode="out-in">
           <div
-            v-if="store.breathing"
+            v-if="state.breathing"
             class="breathe-view__instructions"
           >
             <span class="breathe-view__label">
@@ -33,7 +100,7 @@ store.breathing = false
           <primary-button
             v-else
             label="Start"
-            @click="startBreathing"
+            @click="startBreathing()"
           />
         </transition>
       </footer>
