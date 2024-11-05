@@ -5,9 +5,9 @@ import SegmentedControl from '@components/SegmentedControl.vue'
 import ToggleSwitch from '@components/ToggleSwitch.vue'
 import PrimaryButton from '@components/PrimaryButton.vue'
 
-import type { GlobalState } from 'src/types'
+import type { State } from 'src/types'
 
-const state: GlobalState = reactive({
+const state: State = reactive({
   duration: 'short',
   settings: {
     soundEffectsEnabled: true,
@@ -95,6 +95,7 @@ const toggleSwitches = [
     margin: 0;
     padding: 0;
     text-align: center;
+    -webkit-user-select: none;
     user-select: none;
   }
 

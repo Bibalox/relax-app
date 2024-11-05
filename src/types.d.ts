@@ -1,6 +1,6 @@
 export type Durations = 'short' | 'long'
 
-export type GlobalState = {
+export interface State {
   duration: Durations,
   settings: { [key: string]: boolean }
 }
