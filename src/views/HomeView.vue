@@ -5,24 +5,6 @@ import PrimaryButton from '@components/PrimaryButton.vue'
 
 import { Store } from '@/store'
 const store = Store()
-
-const settings = [
-  {
-    label: 'Sound effects',
-    id: 'soundEffectsEnabled',
-    disabled: false
-  },
-  {
-    label: 'Ambiant music',
-    id: 'musicEnabled',
-    disabled: false
-  },
-  {
-    label: 'Vibrations',
-    id: 'vibrationsEnabled',
-    disabled: navigator.userAgent.toLowerCase().includes('android') ? false : true
-  }
-]
 </script>
 
 <template>
@@ -39,12 +21,12 @@ const settings = [
       />
       <div class="home-view__toggle-switches">
         <toggle-switch
-          v-for="setting in settings"
-          :key="setting.id"
+          v-for="(setting, key) in store.settings"
+          :key="key"
           :label="setting.label"
           :disabled="setting.disabled"
-          :active="store.settings[setting.id]"
-          @click="store.settings[setting.id] = !store.settings[setting.id]"
+          :active="setting.active"
+          @click="setting.active = !setting.active"
         />
       </div>
       <primary-button
