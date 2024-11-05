@@ -1,20 +1,11 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
-
 import SegmentedControl from '@components/SegmentedControl.vue'
 import ToggleSwitch from '@components/ToggleSwitch.vue'
 import PrimaryButton from '@components/PrimaryButton.vue'
 
-import type { State } from 'src/types'
+import { Store } from '@/store'
 
-const state: State = reactive({
-  duration: 'short',
-  settings: {
-    soundEffectsEnabled: true,
-    musicEnabled: false,
-    vibrationsEnabled: false
-  }
-})
+const state = Store()
 
 const toggleSwitches = [
   {
