@@ -4,7 +4,21 @@ import type { Settings } from 'src/types'
 
 export const Store = defineStore('store', () => {
   const settings: Settings = {
-    duration: 'short',
+    duration: {
+      options: [
+        {
+          id: 'short',
+          label: '3 minutes',
+          value: 3 * 60 * 1000
+        },
+        {
+          id: 'long',
+          label: '10 minutes',
+          value: 10 * 60 * 1000
+        }
+      ],
+      active: 'short'
+    },
     toggles: {
       soundEffects: {
         label: 'Sound effects',
@@ -23,7 +37,7 @@ export const Store = defineStore('store', () => {
       }
     }
   }
-  
+
   const breathing = false
 
   return { settings, breathing }

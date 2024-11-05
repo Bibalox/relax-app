@@ -1,5 +1,15 @@
+type Durations = 'short' | 'long'
+
 export interface Settings {
-  duration: 'short' | 'long'
+  duration: {
+    options: {
+      id: Durations,
+      label: string,
+      value: number
+    }[],
+    active: Durations
+  }
+
   toggles: { [key: string]: {
     label: string,
     active: boolean,

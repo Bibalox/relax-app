@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SegmentedControl from '@components/SegmentedControl.vue'
+import DurationPicker from '@/components/DurationPicker.vue'
 import ToggleSwitch from '@components/ToggleSwitch.vue'
 import PrimaryButton from '@components/PrimaryButton.vue'
 
@@ -15,10 +15,7 @@ const store = Store()
       </h1>
     </header>
     <main class="home-view__main">
-      <segmented-control
-        :duration="store.settings.duration"
-        @click="duration => store.settings.duration = duration"
-      />
+      <duration-picker />
       <div class="home-view__toggle-switches">
         <toggle-switch
           v-for="(toggle, key) in store.settings.toggles"

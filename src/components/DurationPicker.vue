@@ -1,44 +1,33 @@
 <script setup lang="ts">
-const props = defineProps<{ duration: Durations }>()
-
-import type { Durations } from 'src/types'
-
-defineEmits(['click'])
+import { Store } from '@/store'
+const store = Store()
 </script>
 
 <template>
-  <div class="segmented-control">
-    <div class="segmented-control__content">
+  <div class="duration-picker">
+    <div class="duration-picker__content">
       <div
         :class="[
-          'segmented-control__active-option-indicator',
-          `segmented-control__active-option-indicator--${props.duration}`
+          'duration-picker__active-option-indicator',
+          `duration-picker__active-option-indicator--${store.settings.duration.active}`
         ]"
       />
       <button
+        v-for="duration in store.settings.duration.options"
+        :key="duration.id"
         :class="[
-          'segmented-control__option',
-          { 'segmented-control__option--active' : props.duration === 'short' }
+          'duration-picker__option',
+          { 'duration-picker__option--active' : store.settings.duration.active === duration.id }
         ]"
-        @click="$emit('click', 'short')"
-      >
-        3 minutes
-      </button>
-      <button
-        :class="[
-          'segmented-control__option',
-          { 'segmented-control__option--active' : props.duration === 'long' }
-        ]"
-        @click="$emit('click', 'long')"
-      >
-        10 minutes
-      </button>
+        @click="() => store.settings.duration.active = duration.id"
+        v-text="duration.label"
+      />
     </div>
   </div>
 </template>
 
 <style lang="scss">
-  .segmented-control {
+  .duration-picker {
     background-color: var(--secondary--transparent);
     border-radius: 99px;
     box-sizing: border-box;
