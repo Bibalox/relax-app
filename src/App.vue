@@ -29,6 +29,7 @@
   }
   
   span, title {
+    -webkit-user-select: none;
     user-select: none;
   }
 

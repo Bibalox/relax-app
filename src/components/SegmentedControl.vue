@@ -68,6 +68,7 @@ defineEmits(['click'])
       height: 100%;
       padding: 0;
       transition: color .2s .1s ease-out;
+      -webkit-user-select: none;
       user-select: none;
 
       &--active {

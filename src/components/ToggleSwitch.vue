@@ -58,11 +58,13 @@ defineEmits(['click'])
 
     &__label {
       color: var(--secondary--default);
+      cursor: default;
       flex: 1;
       font-family: 'Poppins', sans-serif;
       font-size: 1.6rem;
       font-weight: 500;
       text-align: left;
+      -webkit-user-select: none;
       user-select: none;
     }
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{
   label: string,
-  route: string
+  route?: string
 }>()
 
 defineEmits(['click'])
@@ -59,6 +59,7 @@ defineEmits(['click'])
       font-family: 'Poppins', sans-serif;
       font-size: 1.6rem;
       font-weight: 500;
+      -webkit-user-select: none;
       user-select: none;
     }
   }
