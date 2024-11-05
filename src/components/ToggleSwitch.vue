@@ -44,7 +44,7 @@ defineEmits(['click'])
     width: 100%;
 
     &--disabled {
-      cursor: default;
+      cursor: not-allowed;
 
       .toggle-switch__label {
         color: var(--secondary--disabled);
@@ -58,7 +58,7 @@ defineEmits(['click'])
 
     &__label {
       color: var(--secondary--default);
-      cursor: default;
+      cursor: inherit;
       flex: 1;
       font-family: 'Poppins', sans-serif;
       font-size: 1.6rem;
