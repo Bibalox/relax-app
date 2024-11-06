@@ -1,9 +1,9 @@
 const cacheName = 'rainy-app'
 const filesToCache = [
-  '/sounds/distant-storm_1-hour.m4a',
-  '/sounds/distant-storm_30-minutes.m4a',
-  '/sounds/gentle-rain_1-hour.m4a',
-  '/sounds/gentle-rain_30-minutes.m4a'
+  '/audio/music-long.mp3',
+  '/audio/music-short.mp3',
+  '/audio/sound-effect-ending.mp3',
+  '/audio/sound-effect-running.mp3'
 ]
 
 self.addEventListener('install', e => {
