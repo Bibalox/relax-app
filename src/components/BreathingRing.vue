@@ -92,7 +92,6 @@ defineEmits(['click'])
 
   &--breathing &__inner-ring {
     animation: innerRingBreathing 5s .2s alternate infinite ease-in-out;
-    cursor: default;
     transform-origin: 160px 160px;
     
     @keyframes innerRingBreathing {
