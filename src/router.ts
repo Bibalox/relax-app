@@ -11,6 +11,10 @@ const router = createRouter({
       component: HomeView
     },
     {
+      path: '/index.html',
+      redirect: '/'
+    },
+    {
       path: '/breathe',
       name: 'breathe',
       component: BreatheView
