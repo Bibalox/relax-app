@@ -18,17 +18,20 @@ export const useSettings = defineStore('settings', () => {
   }
 
   const toggles: Toggles = {
-    vibrations: {
-      label: 'Vibrations',
-      active: true
-    },
     soundEffects: {
       label: 'Sound effects',
-      active: false
+      active: true,
+      disabled: false
     },
     music: {
       label: 'Ambiant music',
-      active: false
+      active: false,
+      disabled: false
+    },
+    vibrations: {
+      label: 'Vibrations',
+      active: false,
+      disabled: navigator.userAgent.toLowerCase().includes('android') ? false : true
     }
   }
 

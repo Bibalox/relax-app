@@ -14,7 +14,8 @@ export interface Duration {
 export interface Toggles {
   [key: string]: {
     label: string,
-    active: boolean
+    active: boolean,
+    disabled: boolean
   }
 }
 

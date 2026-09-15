@@ -22,6 +22,7 @@ const settings = useSettings()
           :key="key"
           :label="toggle.label"
           :active="toggle.active"
+          :disabled="toggle.disabled"
           @click="toggle.active = !toggle.active"
         />
       </div>
