@@ -20,11 +20,11 @@ export const useSettings = defineStore('settings', () => {
   const toggles: Toggles = {
     vibrations: {
       label: 'Vibrations',
-      active: false
+      active: true
     },
     soundEffects: {
       label: 'Sound effects',
-      active: true
+      active: false
     },
     music: {
       label: 'Ambiant music',
