@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { reactive, onBeforeUnmount } from 'vue'
-import 'ios-vibrator-pro-max'
 
 import BreathingRing from '@components/BreathingRing.vue'
 import PrimaryButton from '@components/PrimaryButton.vue'
