@@ -1,8 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{ 
   label: string,
-  active: boolean,
-  disabled: boolean
+  active: boolean
 }>()
 
 defineEmits(['click'])
@@ -10,11 +9,7 @@ defineEmits(['click'])
 
 <template>
   <button
-    :class="[
-      'toggle-switch',
-      { 'toggle-switch--disabled' : props.disabled }
-    ]"
-    :disabled="props.disabled"
+    class="toggle-switch"
     @click="$emit('click')"
   >
     <span
@@ -42,19 +37,6 @@ defineEmits(['click'])
     display: flex;
     padding: 0;
     width: 100%;
-
-    &--disabled {
-      cursor: not-allowed;
-
-      .toggle-switch__label {
-        color: var(--secondary--disabled);
-      }
-
-      .toggle-switch__knob {
-        background-color: var(--secondary--disabled);
-        box-shadow: var(--shadow--soft);
-      }
-    }
 
     &__label {
       color: var(--secondary--default);

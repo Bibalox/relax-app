@@ -21,7 +21,6 @@ const settings = useSettings()
           v-for="(toggle, key) in settings.toggles"
           :key="key"
           :label="toggle.label"
-          :disabled="toggle.disabled"
           :active="toggle.active"
           @click="toggle.active = !toggle.active"
         />

@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-import type { Duration, Toggles } from 'src/types'
+import type { Duration, Toggles } from './types'
 
 export const useSettings = defineStore('settings', () => {
   const duration: Duration = {
@@ -18,20 +18,17 @@ export const useSettings = defineStore('settings', () => {
   }
 
   const toggles: Toggles = {
+    vibrations: {
+      label: 'Vibrations',
+      active: false
+    },
     soundEffects: {
       label: 'Sound effects',
-      active: true,
-      disabled: false
+      active: true
     },
     music: {
       label: 'Ambiant music',
-      active: false,
-      disabled: false
-    },
-    vibrations: {
-      label: 'Vibrations',
-      active: false,
-      disabled: navigator.userAgent.toLowerCase().includes('android') ? false : true
+      active: false
     }
   }
 
@@ -43,7 +40,7 @@ export const useData = defineStore('data', () => {
     running: new Audio('/audio/sound-effect-running.mp3'),
     ending: new Audio('/audio/sound-effect-ending.mp3')
   }
-    
+
   const musics = {
     short: new Audio('/audio/music-short.mp3'),
     long: new Audio('/audio/music-long.mp3')
